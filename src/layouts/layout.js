@@ -18,9 +18,8 @@ import Seo from 'modifiers/seo'
 const Components = {
   // Loadable Blocks
   header: loadable(() => import( `./header` )),
-  simpleHeader: loadable(() => import( `simpleComponents/header` )),
   footer: loadable(() => import( `./footer` )),
-  simpleFooter: loadable(() => import( `simpleComponents/footer` )),
+  
 }
 
 const Layout = props => {
@@ -33,8 +32,8 @@ const Layout = props => {
     simple = false,
   } = props
 
-  const Header = simple ? Components['simpleHeader'] : Components['header']
-  const Footer = simple ? Components['simpleFooter'] : Components['footer']
+  const Header = ( is.not.empty( header ) || simple ) ? Components['header'] : null
+  const Footer = ( is.not.empty( footer ) || simple ) ? Components['footer'] : null
 
   return (
     <>

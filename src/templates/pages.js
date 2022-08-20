@@ -58,37 +58,37 @@ const Pages = ( { data, pageContext } ) => {
 
 export default Pages
 
-export const query = graphql`
-  query PagesTemplateQuery( $id: String, $do_not_publish: Boolean, $is_404: Boolean ) {
-    pagesJson( 
-      id: { eq: $id } 
-      admin: {
-        do_not_publish: { eq: $do_not_publish } , 
-        is_404: { eq: $is_404 }
-      }
-    ) {
-    id
-    url
-    title
-    admin {
-      do_not_publish
-      is_404
-    }
-    seo {
-      title
-      description
-      # image
-      no_follow
-      no_index
-    }
-    layout {
-      footer {
-        ...FooterFragment
-      }
-      header {
-        ...HeaderFragment
-      }
-    }
-  }
-}
-`
+// export const query = graphql`
+//   query PagesTemplateQuery( $id: String, $do_not_publish: Boolean, $is_404: Boolean ) {
+//     pagesJson( 
+//       id: { eq: $id } 
+//       admin: {
+//         do_not_publish: { eq: $do_not_publish } , 
+//         is_404: { eq: $is_404 }
+//       }
+//     ) {
+//     id
+//     url
+//     title
+//     admin {
+//       do_not_publish
+//       is_404
+//     }
+//     seo {
+//       title
+//       description
+//       # image
+//       no_follow
+//       no_index
+//     }
+//     layout {
+//       footer {
+//         ...FooterFragment
+//       }
+//       header {
+//         ...HeaderFragment
+//       }
+//     }
+//   }
+// }
+// `

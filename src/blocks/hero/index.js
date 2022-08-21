@@ -17,6 +17,7 @@ const background_image = {
 	src : '../../../static/images/equipment_setup.jpg',
 	alt : 'White equipment with blue lights'
 }
+
 const ImpactHero = props => {
 
 	const {
@@ -84,10 +85,8 @@ const ImpactHero = props => {
 			</div>
 			<div { ...bodyClasses } >
 				<div { ...panelClasses } >
-
 					<p>
 						In addition to the music, DJ Eddie G also offers a variety of services including:</p>
-
 					<ul>
 						<li>LED Photo Booth</li>
 						<li>Enclosed/Open Photo Booth</li>

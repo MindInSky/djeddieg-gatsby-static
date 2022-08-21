@@ -33,6 +33,9 @@ $radius-large: calc( $radius * 1.5 );
 $radius-extra-large: calc( $radius * 2 );
 $radius-rounded: calc( $radius * 1000 );
 
+// Global Blur definitions
+$blur: blur(4px);
+
 // Brands colors
 $brand-color-facebook:    		#3B5897;	// RGB: rgb(59,88,151);
 $brand-color-twitter:     		#00ACEB;	// RGB: rgb(0,172,235);

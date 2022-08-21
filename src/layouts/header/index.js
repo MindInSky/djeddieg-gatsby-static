@@ -107,8 +107,7 @@ const Header = () => {
 	const linkClasses = classy([
 		'column', 
 		'is-flex',
-		!with_menus && !with_cta ? 'is-12-mobile' : 'is-5-mobile',
-		'is-4-tablet',
+		'is-6-tablet',
 		'is-3-desktop',
 		'is-3-widescreen',
 		'is-2-fullhd',
@@ -124,7 +123,11 @@ const Header = () => {
 	const bannerWrapperClasses = classy([
 		'header-banner',
 		'column',
-		'is-narrow',
+		'is-6-tablet',
+		'is-narrow-desktop',
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
+		'is-align-items-center',
 		'is-flex',
 		'is-align-items-center',
 		'has-background-danger',

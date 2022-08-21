@@ -3,22 +3,48 @@
   position: relative;
   padding-top: 10rem;
 
-  @media screen and (min-width: $desktop)  {
+  @media screen and (min-width: $tablet)  {
+
     padding-top: 5rem; // Extra temporary distance from header
+
   }
   
 	&.is-fullheight-with-navbar-footer {
+
     min-height: calc(100vh - 7.45rem);
+
   }
 
-  
+  .announcement {
+
+    padding-left: 1.5rem ;
+    padding-right: 1.5rem ;
+
+  }
+
+  .impact-content {
+
+    padding-top: 1.5rem;
+
+  }
+
   .hero-member {
+    
     border-radius: $radius-extra-large;
     background-image: $background-filter;
+
+    @media screen and (max-width: $tablet) {
+      &:not(:last-child){
+        margin-bottom: 1rem;
+      }
+    }
+
   }
 
   .hero-panel {
+
     margin-bottom: 0;
+
   }
 
 }
@@ -30,8 +56,17 @@
   position: absolute;
   
   .image {
-    height: 100vh;
+     
+    height: 175vh;
+
+    @media screen and (min-width: $tablet)  {
+  
+      height: 100vh; // This works from tablet on
+  
+    }
+
     filter: brightness(85%);
+
   }
 
 }

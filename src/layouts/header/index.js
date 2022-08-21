@@ -99,7 +99,7 @@ const Header = () => {
 	const containerClasses= classy([
 		'is-marginless',
 		'columns',
-		'is-mobile',
+		// 'is-mobile',
 		'is-align-items-stretch',
 		'is-justify-content-space-between',
 	])
@@ -110,7 +110,8 @@ const Header = () => {
 		!with_menus && !with_cta ? 'is-12-mobile' : 'is-5-mobile',
 		'is-4-tablet',
 		'is-3-desktop',
-		'is-2-widescreen',
+		'is-3-widescreen',
+		'is-2-fullhd',
 		'is-align-items-center',
 		'link-column'
 	])
@@ -118,6 +119,15 @@ const Header = () => {
 	const menuWrapperClasses = classy([
 		'column',
 		'is-narrow'
+	])
+
+	const bannerWrapperClasses = classy([
+		'header-banner',
+		'column',
+		'is-narrow',
+		'is-flex',
+		'is-align-items-center',
+		'has-background-danger',
 	])
 		
 	return ( 
@@ -143,6 +153,12 @@ const Header = () => {
 							{/* Logo Image -  End  - */}
 					</Wrapper>
 				}
+				{/* Banner  */}
+				<div { ...bannerWrapperClasses }>
+					<p>
+						Renovations are being performed for a better experience
+					</p>
+				</div>
 				{ with_menus && ( is.not.empty( menu ) || is.all.truthy( main_cta ) ) &&
 					<div { ...menuWrapperClasses } >
 					{/* Main CTA - start - */}

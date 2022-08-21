@@ -1,6 +1,8 @@
 .footer {
-  padding-bottom: 0; // Removing default footer padding
 
+  padding-top: 0; // Removing default footer padding
+  padding-bottom: 0; // Removing default footer padding
+  
   .social-column {
     &:hover {
       .social-icon {

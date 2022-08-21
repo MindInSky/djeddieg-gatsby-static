@@ -1,13 +1,24 @@
-.impact-hero {
+.section.impact-hero {
 
   position: relative;
+  padding-top: 10rem;
 
+  @media screen and (min-width: $desktop)  {
+    padding-top: 5rem; // Extra temporary distance from header
+  }
+  
 	&.is-fullheight-with-navbar-footer {
     min-height: calc(100vh - 7.45rem);
   }
 
-  .impact-hero {
-    border: 1px red solid;
+  
+  .hero-member {
+    border-radius: $radius-extra-large;
+    background-image: $background-filter;
+  }
+
+  .hero-panel {
+    margin-bottom: 0;
   }
 
 }
@@ -20,6 +31,7 @@
   
   .image {
     height: 100vh;
+    filter: brightness(85%);
   }
 
 }

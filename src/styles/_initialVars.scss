@@ -10,8 +10,28 @@
 $primary: #a4a4a4;
 $secondary: #921b11;
 
-// Background
-$background-color : #fbffec;
+// System
+$system-red:	#E93030;	// RGB: rgb(246,83,83);
+
+$ivory : #fbffec;
+
+// Overrides:
+$danger : $system-red;
+
+// Black Filter for Background
+$background-filter : linear-gradient(90deg, rgb(0 0 0 / 66%) 100%, rgb(255 255 255 / 0%) 100%);
+
+// Text Color
+$title-color: $ivory;
+$subtitle-color: $ivory;
+
+// Global Radius Definitions
+$radius: 4px;
+$radius-small: calc( $radius * 0.5 );
+$radius-normal: $radius;
+$radius-large: calc( $radius * 1.5 );
+$radius-extra-large: calc( $radius * 2 );
+$radius-rounded: calc( $radius * 1000 );
 
 // Brands colors
 $brand-color-facebook:    		#3B5897;	// RGB: rgb(59,88,151);

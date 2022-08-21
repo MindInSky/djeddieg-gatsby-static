@@ -1,5 +1,7 @@
-// .header {
-// 	.main-link-active {
-// 		color: $primary;
-// 	}
-// }
+.header {
+	.header-banner {
+		height: fit-content;
+    align-self: center;
+    border-radius: $radius-extra-large;
+	}
+}

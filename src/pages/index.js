@@ -3,7 +3,6 @@ import React from 'react'
 
 // Import Layout
 import Layout from 'layouts/layout'
-import Header from 'layouts/header'
 
 // Import Libraries
 import is from 'is_js'
@@ -18,6 +17,7 @@ import loadable from '@loadable/component'
 const Components = {
   // Loadable Blocks
   panels: loadable(() => import( `blocks/panels` )),
+  hero: loadable(() => import( `blocks/hero` )),
 
 }
 
@@ -29,8 +29,8 @@ const seo = {
 
 const Index = () => {
 
-  const Panels = Components['panels']
-
+  // const Panels = Components['panels']
+  const Hero = Components['hero']
 
   return (
     <Layout
@@ -38,7 +38,7 @@ const Index = () => {
       // { ...layout }
       seo = { seo }
     >
-      This is temporal
+      <Hero/>
     </Layout>
   )
 

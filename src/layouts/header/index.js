@@ -10,23 +10,82 @@ import classy from 'modifiers/classy'
 // Import Libraries
 // import is from 'is_js'
 import is from 'is_js'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 
 // Import Modifiers
-// import hash from 'modifiers/hash'
+import Wrapper from 'modifiers/wrapper'
 import getValue from 'modifiers/getValue'
 
-const Header = props => {
+const headerData = {
+  data: {
+    main_cta: {
+      type: "primary",
+      label: "Contact Us",
+      url: "#contact-us"
+    },
+    menu: {
+			title: "Testing Header Menu",
+			description: "Testing header menu, need a new default one",
+			submenu: [
+				{
+					title: "Products",
+					main_cta: {
+						label: "Products",
+						url: "",
+						page: "/"
+					}
+				},
+				{
+					title: "This is not displayed: Solutions",
+					main_cta: {
+						label: "Solutions",
+						url: "",
+						page: "/"
+					},
+					links: [
+						{
+							label: "Solution 1",
+							url: "https://www.youtube.com"
+						}
+					]
+				}
+			]
+		}
+  },
+  settings: {
+    with_logo: true,
+    logo_link: true,
+    logo_position: true,
+    with_cta: false,
+    with_menus: false
+  },
+  title: "Testing Header",
+  description: "Testing Header NOT for prod"
+}
+
+const logoData = {
+	src : '../../../static/images/logo.png',
+	alt : 'DJ Eddie G - Home',
+}
+
+const Header = () => {
 
 	// Stuff happens here
-	const {
+	let {
 		className = false,
 		data : {
 			main_cta = {},
 			menu = {} ,
-		}
-	} = props
-
+		} = {},
+		settings : {
+			with_logo = false,
+			logo_link = false,
+			logo_position = false,
+			with_cta = false,
+			with_menus = false
+		} = {}
+	} = headerData
+	
 	const headerClasses = classy([
 		'header',
 		'navbar',
@@ -45,9 +104,10 @@ const Header = props => {
 	const linkClasses = classy([
 		'column', 
 		'is-flex',
-		'is-5-mobile',
-		'is-narrow-tablet',
-		'is-narrow-desktop',
+		!with_menus && !with_cta ? 'is-12-mobile' : 'is-5-mobile',
+		'is-4-tablet',
+		'is-3-desktop',
+		'is-2-widescreen',
 		'is-align-items-center',
 		'link-column'
 	])
@@ -56,24 +116,31 @@ const Header = props => {
 		'column',
 		'is-narrow'
 	])
-
-	const navClasses = classy([
-		'nav-menus',
-		'columns',
-		'is-marginless'
-	])
 		
 	return ( 
 		<header { ...headerClasses } >
 			{/* <StaticImage/> */}
 			<Container type='fluid' { ...containerClasses }>
-				<Link
-					to="/"
-					{ ...linkClasses }
-				>
-					{/* <Image { ...logoData } TODO static image instead /> */}
-				</Link>
-				{ is.not.empty( menu ) && is.all.truthy( main_cta ) &&
+				{ with_logo && !is.all.emtpy && 
+					<Wrapper
+						condition = { logo_link }
+						wrapper = { 
+							children => <Link
+							to="/"
+							{ ...linkClasses }
+						>
+							{ children }
+						</Link>
+						}
+					>
+							{/* Logo Image - Start - */}
+								<StaticImage
+									{ ...logoData }
+								/>
+							{/* Logo Image -  End  - */}
+					</Wrapper>
+				}
+				{ with_menus && ( is.not.empty( menu ) || is.all.truthy( main_cta ) ) &&
 					<div { ...menuWrapperClasses } >
 					{/* Main CTA - start - */}
 					{/* { main_cta && 
@@ -82,8 +149,10 @@ const Header = props => {
 						</div>
 					} */}
 					{/* Main CTA -  End  - */}
-					{/* Navigation  - Start - */}
-					<Navigation { ...menu } />
+					{/* Navigation  - Start - Menu must not be  */}
+					{ with_menus && is.not.empty( menu ) &&
+						<Navigation { ...menu } /> 
+					}
 					{/* Navigation  -  End  - */}
 				</div>
 				}

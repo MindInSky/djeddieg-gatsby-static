@@ -1,0 +1,25 @@
+.impact-hero {
+
+  position: relative;
+
+	&.is-fullheight-with-navbar-footer {
+    min-height: calc(100vh - 7.45rem);
+  }
+
+  .impact-hero {
+    border: 1px red solid;
+  }
+
+}
+
+.impact-background {
+
+  top: 0;
+  z-index: -1;
+  position: absolute;
+  
+  .image {
+    height: 100vh;
+  }
+
+}

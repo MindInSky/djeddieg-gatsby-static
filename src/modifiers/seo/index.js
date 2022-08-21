@@ -59,10 +59,16 @@ const Seo = props => {
         lang,
       }}
       bodyAttributes={{
-        class: 'has-navbar-fixed-top'
+        class: 'has-navbar-fixed-top has-navbar-fixed-bottom'
       }}
       title={title}
       titleTemplate={ `${ title && `${ title } | `}${ sitename }` }
+      link={[
+        {
+          rel: `canonical`,
+          href: url,
+        },
+      ]}
       meta={[
         {
           name: `description`,

@@ -34,15 +34,6 @@ let config = {
   },
   plugins: [
     `gatsby-plugin-resolve-src`,
-    //Loadable stuff
-    {
-      resolve: `gatsby-plugin-loadable-components-ssr`,
-      options: {
-        // Whether replaceHydrateFunction should call ReactDOM.hydrate or ReactDOM.render
-        // Defaults to ReactDOM.render on develop and ReactDOM.hydrate on build
-        useHydrate: false,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     // Uploaded Images from the CMS
@@ -89,10 +80,10 @@ let config = {
         name: `DJEddieG`,
         short_name: `DJEddieG`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `##fbffec`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        // theme_color: `##fbffec`,
         display: `minimal-ui`,
         icon: `static/images/favicon.png`, // This path is relative to the root of the site.
       },

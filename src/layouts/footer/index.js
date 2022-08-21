@@ -2,11 +2,14 @@
 import React from 'react'
 
 // Import Elements
-import { Container, Link, Icon } from 'elements'
+import { Link, Icon } from 'elements'
+
+// Import Layouts
+import { Container } from 'layouts'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
-import hash from 'modifiers/hash'
+// import hash from 'modifiers/hash'
 
 // Import Icons
 import { RiFacebookFill as FacebookIcon } from '@react-icons/all-files/ri/RiFacebookFill'
@@ -32,9 +35,10 @@ const Footer = props => {
 	])
 
 	const containerClasses= classy([
-		'is-marginless',
 		'columns',
 		'is-mobile',
+		'is-marginless',
+		'is-multiline',
 		'is-justify-content-center',
 	])
 
@@ -47,44 +51,72 @@ const Footer = props => {
 	}
 
 	const fbLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'facebook-icon',
 	])
 
 	const twLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'twitter-icon',
 	])
 
 	const igLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'instagram-icon',
 	])
 
 	const ytLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'youtube-icon',
 	])
 
 	const mxLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'mixcloud-icon',
 	])
 
 	const scLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'soundcloud-icon',
 	])
 
 	const tcLinkClasses = classy([
-		'column', 
-		'is-narrow',
+		'column',
+		'is-3-mobile',
+		'is-narrow-tablet',
+		'is-narrow-desktop',		
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
 		'twitch-icon',
 	])
 		

@@ -2,10 +2,13 @@
 import React from 'react'
 
 // Import Elements
-import { Container, Link, Image, Navigation } from 'elements'
+import { Link } from 'elements'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
+
+// Import Layouts
+import { Container, Navigation } from 'layouts'
 
 // Import Libraries
 // import is from 'is_js'
@@ -14,7 +17,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 
 // Import Modifiers
 import Wrapper from 'modifiers/wrapper'
-import getValue from 'modifiers/getValue'
+// import getValue from 'modifiers/getValue'
 
 const headerData = {
   data: {
@@ -80,7 +83,7 @@ const Header = () => {
 		settings : {
 			with_logo = false,
 			logo_link = false,
-			logo_position = false,
+			// logo_position = false,
 			with_cta = false,
 			with_menus = false
 		} = {}

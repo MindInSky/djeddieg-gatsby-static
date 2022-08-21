@@ -2,10 +2,9 @@
 import React from 'react'
 
 // Import Elements
-import { Section } from 'elements'
+import { Section } from 'layouts'
 
 // Import Libraries
-import { Media } from 'stores/responsiveContext'
 import { StaticImage } from 'gatsby-plugin-image'
 
 // Import Modifiers
@@ -15,7 +14,7 @@ const background_image = {
 	src : '../../../static/images/equipment_setup.jpg',
 	alt : 'White equipment with blue lights'
 }
-const Panels = props => {
+const ImpactHero = props => {
 
 	const {
 			className = false
@@ -33,10 +32,6 @@ const Panels = props => {
 		'impact-background',
 	])
 
-	// const imageWrapperClasses = classy([
-	// 	'has-ratio'
-	// ])
-
 	return ( <>
 		<Section { ...heroClasses }>
 			<div>
@@ -52,4 +47,4 @@ const Panels = props => {
 	</>)
 }
 
-export default Panels
+export default ImpactHero

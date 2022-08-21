@@ -1,25 +1,17 @@
 // Import React
 import React from 'react'
 
+// Import Blocks
+import { Hero } from 'blocks'
+
 // Import Layout
-import Layout from 'layouts/layout'
+import { Layout } from 'layouts'
 
 // Import Libraries
-import is from 'is_js'
-import loadable from '@loadable/component'
+// import is from 'is_js'
 
 // Import Modifiers
 // import getValue from 'modifiers/getValue'
-/*****************/
-/**  Loadables  **/
-/*****************/
-
-const Components = {
-  // Loadable Blocks
-  panels: loadable(() => import( `blocks/panels` )),
-  hero: loadable(() => import( `blocks/hero` )),
-
-}
 
 const seo = {
   url : '/',
@@ -28,9 +20,6 @@ const seo = {
 }
 
 const Index = () => {
-
-  // const Panels = Components['panels']
-  const Hero = Components['hero']
 
   return (
     <Layout

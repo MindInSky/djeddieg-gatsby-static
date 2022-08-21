@@ -11,7 +11,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { MediaStyle } from 'stores/responsiveContext'
 
 // Import Modifiers
 import getValue from 'modifiers/getValue'
@@ -120,9 +119,6 @@ const Seo = props => {
         },
       ].concat(meta)}
     >
-      <style type="text/css">
-        { MediaStyle }
-      </style>
     </Helmet>
   )
 }

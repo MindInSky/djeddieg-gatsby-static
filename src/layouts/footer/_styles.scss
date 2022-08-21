@@ -1,6 +1,16 @@
 .footer {
   padding-bottom: 0; // Removing default footer padding
 
+  .social-column {
+    &:hover {
+      .social-icon {
+        background-color: #0000007d;
+        border-radius: 50%;
+        transition: background-color 0.3s, color 0.3s;
+      }
+    }
+  }
+  
   .facebook-icon {
     &:hover {
       color: $brand-color-facebook;

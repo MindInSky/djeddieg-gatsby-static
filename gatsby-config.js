@@ -80,7 +80,7 @@ let config = {
         name: `DJEddieG`,
         short_name: `DJEddieG`,
         start_url: `/`,
-        background_color: `##fbffec`,
+        background_color: `#fbffec`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `##fbffec`,

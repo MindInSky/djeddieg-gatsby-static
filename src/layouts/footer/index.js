@@ -44,6 +44,7 @@ const Footer = props => {
 
 	const iconClasses = classy([
 		'is-large',
+		'social-icon'
 	])
 
 	const iconProps = {
@@ -51,6 +52,7 @@ const Footer = props => {
 	}
 
 	const fbLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',
@@ -61,6 +63,7 @@ const Footer = props => {
 	])
 
 	const twLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',
@@ -71,6 +74,7 @@ const Footer = props => {
 	])
 
 	const igLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',
@@ -81,6 +85,7 @@ const Footer = props => {
 	])
 
 	const ytLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',
@@ -91,6 +96,7 @@ const Footer = props => {
 	])
 
 	const mxLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',
@@ -101,6 +107,7 @@ const Footer = props => {
 	])
 
 	const scLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',
@@ -111,6 +118,7 @@ const Footer = props => {
 	])
 
 	const tcLinkClasses = classy([
+		'social-column',
 		'column',
 		'is-3-mobile',
 		'is-narrow-tablet',

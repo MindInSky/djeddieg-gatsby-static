@@ -11,7 +11,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { MediaStyle } from 'stores/responsiveContext'
 
 // Import Modifiers
 import getValue from 'modifiers/getValue'
@@ -26,6 +25,7 @@ const Seo = props => {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -59,10 +59,16 @@ const Seo = props => {
         lang,
       }}
       bodyAttributes={{
-        class: 'has-navbar-fixed-top'
+        class: 'has-navbar-fixed-top has-navbar-fixed-bottom'
       }}
       title={title}
       titleTemplate={ `${ title && `${ title } | `}${ sitename }` }
+      link={[
+        {
+          rel: `canonical`,
+          href: `${site.siteMetadata?.siteUrl}${url}`,
+        },
+      ]}
       meta={[
         {
           name: `description`,
@@ -114,9 +120,6 @@ const Seo = props => {
         },
       ].concat(meta)}
     >
-      <style type="text/css">
-        { MediaStyle }
-      </style>
     </Helmet>
   )
 }

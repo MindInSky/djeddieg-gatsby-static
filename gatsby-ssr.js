@@ -13,18 +13,7 @@
 require( `styles/site.scss` )
 
 // Import React
-const React = require( `react` )
-
-// Import Context
-const { MediaContextProvider } = require( `stores/responsiveContext` )
-
-exports.wrapRootElement = ({ element }) => {
-  return (
-    <MediaContextProvider>
-      {element}
-    </MediaContextProvider>
-  )
-}
+// const React = require( `react` )
 
 // Add a list of styles that we want to include at the beginning of the `head` tag
 // Started to make this a plugin, but only for scripts atm

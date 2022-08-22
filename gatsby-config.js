@@ -11,13 +11,13 @@ process.env.DEVELOPMENT_MODE = ( process.env.NODE_ENV === `development` && !Bool
 // Set PRODUCTION_MODE if we are building on gatsby cloud from master
 process.env.PRODUCTION_MODE = ( process.env.NODE_ENV === `production` && Boolean( process.env.GATSBY_CLOUD ) )
 
-const siteUrl = `https://www.mindin.cloud`
+const siteUrl = `https://www.djeddieg.com/`
 
 let config = {
   siteMetadata: {
-    title: `MindInCloud`,
-    description: `MindInCloud delivering your ideas`,
-    author: `MindInCloud`,
+    title: `DJEddieJ`,
+    description: `Booking, Drop Me A Line Today! Services Offered: DJ Eddie G is happy to meet with clients for a consultation before the big day. During this time together, you can discuss music options, timeline, bilingual MC services, and the do-not-play list. Proof of liability insurance can be provided.`,
+    author: `MindInSky`,
     siteUrl,
   },
   // Trailing Slash
@@ -34,42 +34,33 @@ let config = {
   },
   plugins: [
     `gatsby-plugin-resolve-src`,
-    //Loadable stuff
-    {
-      resolve: `gatsby-plugin-loadable-components-ssr`,
-      options: {
-        // Whether replaceHydrateFunction should call ReactDOM.hydrate or ReactDOM.render
-        // Defaults to ReactDOM.render on develop and ReactDOM.hydrate on build
-        useHydrate: false,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     // Uploaded Images from the CMS
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/static/media/images`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/static/media/images`,
+    //   },
+    // },
     // New images without the CMS, StaticImage to be used with these
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/static/unlisted/images`,
+        path: `${__dirname}/static/images`,
       },
     },
     `gatsby-transformer-json`,
-    { // Generate data from json files
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/content/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
-      },
-    },
+    // { // Generate data from json files
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `data`,
+    //     path: `${__dirname}/content/`,
+    //     ignore: [`**/\.*`], // ignore files starting with a dot
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -86,15 +77,15 @@ let config = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `MindInCloud-gatsby`,
-        short_name: `MindInCloud`,
+        name: `DJEddieG`,
+        short_name: `DJEddieG`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#fbffec`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        // theme_color: `##fbffec`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // Sass plugins
@@ -106,8 +97,6 @@ let config = {
         }
       },
     },
-    // Netlify CMS
-    `gatsby-plugin-netlify-cms`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

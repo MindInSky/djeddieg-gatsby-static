@@ -2,43 +2,93 @@
 import React from 'react'
 
 // Import Elements
-import { Container, Link, Image, Navigation } from 'elements'
+import { Link } from 'elements'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
 
+// Import Layouts
+import { Container, Navigation } from 'layouts'
+
 // Import Libraries
 // import is from 'is_js'
 import is from 'is_js'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 
 // Import Modifiers
-// import hash from 'modifiers/hash'
-import getValue from 'modifiers/getValue'
+import Wrapper from 'modifiers/wrapper'
+// import getValue from 'modifiers/getValue'
 
-const Header = props => {
+const headerData = {
+  data: {
+    main_cta: {
+      type: "primary",
+      label: "Contact Us",
+      url: "#contact-us"
+    },
+    menu: {
+			title: "Testing Header Menu",
+			description: "Testing header menu, need a new default one",
+			submenu: [
+				{
+					title: "Products",
+					main_cta: {
+						label: "Products",
+						url: "",
+						page: "/"
+					}
+				},
+				{
+					title: "This is not displayed: Solutions",
+					main_cta: {
+						label: "Solutions",
+						url: "",
+						page: "/"
+					},
+					links: [
+						{
+							label: "Solution 1",
+							url: "https://www.youtube.com"
+						}
+					]
+				}
+			]
+		}
+  },
+  settings: {
+    with_logo: true,
+    logo_link: true,
+    logo_position: true,
+    with_cta: false,
+    with_menus: false
+  },
+  title: "Testing Header",
+  description: "Testing Header NOT for prod"
+}
 
-	// Lets get default data
-	// TODO default processor?
-	const { data } = useStaticQuery( graphql`query DefaultLogo {
-		data: defaultSettingsJson( identifier: {eq: "logo_settings"} ) {
-    ...SettingsFragment
-  	}
-	}`)
+const logoData = {
+	src : '../../../static/images/logo.png',
+	alt : 'DJ Eddie G - Home',
+}
 
-	// This does work, leaving here for now
-	// const { settings_data = [] } = data
-	const logoData = getValue ( data , `settings_data.[0].image` , {} )
+const Header = () => {
 
 	// Stuff happens here
-	const {
+	let {
 		className = false,
 		data : {
 			main_cta = {},
 			menu = {} ,
-		}
-	} = props
-
+		} = {},
+		settings : {
+			with_logo = false,
+			logo_link = false,
+			// logo_position = false,
+			// with_cta = false,
+			with_menus = false
+		} = {}
+	} = headerData
+	
 	const headerClasses = classy([
 		'header',
 		'navbar',
@@ -49,7 +99,7 @@ const Header = props => {
 	const containerClasses= classy([
 		'is-marginless',
 		'columns',
-		'is-mobile',
+		// 'is-mobile',
 		'is-align-items-stretch',
 		'is-justify-content-space-between',
 	])
@@ -57,9 +107,10 @@ const Header = props => {
 	const linkClasses = classy([
 		'column', 
 		'is-flex',
-		'is-5-mobile',
-		'is-narrow-tablet',
-		'is-narrow-desktop',
+		'is-6-tablet',
+		'is-3-desktop',
+		'is-3-widescreen',
+		'is-2-fullhd',
 		'is-align-items-center',
 		'link-column'
 	])
@@ -69,23 +120,49 @@ const Header = props => {
 		'is-narrow'
 	])
 
-	const navClasses = classy([
-		'nav-menus',
-		'columns',
-		'is-marginless'
+	const bannerWrapperClasses = classy([
+		'header-banner',
+		'column',
+		'is-6-tablet',
+		'is-narrow-desktop',
+		'is-narrow-widescreen',
+		'is-narrow-fullhd',
+		'is-align-items-center',
+		'is-flex',
+		'is-align-items-center',
+		'has-background-danger',
 	])
 		
 	return ( 
 		<header { ...headerClasses } >
 			{/* <StaticImage/> */}
 			<Container type='fluid' { ...containerClasses }>
-				<Link
-					to="/"
-					{ ...linkClasses }
-				>
-					<Image { ...logoData } />
-				</Link>
-				{ is.not.empty( menu ) && is.all.truthy( main_cta ) &&
+				{ with_logo && !is.all.emtpy && 
+					<Wrapper
+						condition = { logo_link }
+						wrapper = { 
+							children => <Link
+							to="/"
+							{ ...linkClasses }
+						>
+							{ children }
+						</Link>
+						}
+					>
+							{/* Logo Image - Start - */}
+								<StaticImage
+									{ ...logoData }
+								/>
+							{/* Logo Image -  End  - */}
+					</Wrapper>
+				}
+				{/* Banner  */}
+				<div { ...bannerWrapperClasses }>
+					<p>
+						Renovations are being performed for a better experience
+					</p>
+				</div>
+				{ with_menus && ( is.not.empty( menu ) || is.all.truthy( main_cta ) ) &&
 					<div { ...menuWrapperClasses } >
 					{/* Main CTA - start - */}
 					{/* { main_cta && 
@@ -94,8 +171,10 @@ const Header = props => {
 						</div>
 					} */}
 					{/* Main CTA -  End  - */}
-					{/* Navigation  - Start - */}
-					<Navigation { ...menu } />
+					{/* Navigation  - Start - Menu must not be  */}
+					{ with_menus && is.not.empty( menu ) &&
+						<Navigation { ...menu } /> 
+					}
 					{/* Navigation  -  End  - */}
 				</div>
 				}

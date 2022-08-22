@@ -25,6 +25,7 @@ const Seo = props => {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -65,7 +66,7 @@ const Seo = props => {
       link={[
         {
           rel: `canonical`,
-          href: url,
+          href: `${site.siteMetadata?.siteUrl}${url}`,
         },
       ]}
       meta={[

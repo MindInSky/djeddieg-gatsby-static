@@ -84,7 +84,7 @@ const Header = () => {
 			with_logo = false,
 			logo_link = false,
 			// logo_position = false,
-			with_cta = false,
+			// with_cta = false,
 			with_menus = false
 		} = {}
 	} = headerData

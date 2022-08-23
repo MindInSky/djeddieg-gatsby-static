@@ -1,58 +1,52 @@
-// // using Twilio SendGrid's v3 Node.js Library
-// // https://github.com/sendgrid/sendgrid-nodejs
-// // javascript
-// const sgMail = require('@sendgrid/mail')
+// using Twilio SendGrid's v3 Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+// javascript
+const sgMail = require('@sendgrid/mail')
 
 exports.handler = async ( event, context, { req, res } ) => {
 
 	console.log(`🚀 ~ file: mailing.js ~ line 6 ~ newFunction ~ req`, req)
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Hello World" }),
-  };
-// 	const response = {
-// 		body: '',
-// 		statusCode : ''
-// 	}
 
-// 	sgMail.setApiKey(process.env.GATSBY_SENDGRID_KEY)
+  let response = {}
 
-// 	const msg = {
-// 		from: process.env.GATSBY_SENDGRID_FROM, // Change to your verified sender
-// 		to: process.env.GATSBY_SENDGRID_TO, // Change to your recipient
-// 		subject: 'From the Contact Form',
-// 		text: 'and easy to do anywhere, even with Node.js',
-// 		html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-// 	}
-// 	sgMail
-// 		.send( msg )
-// 		.then(() => {
+	sgMail.setApiKey(process.env.SENDGRID_KEY)
 
-// 			console.log('Email sent')
-// 			response.body({})
-// 			response.statusCode(200)
+	const msg = {
+		from: process.env.SENDGRID_FROM, // Change to your verified sender
+		to: process.env.SENDGRID_TO, // Change to your recipient
+		subject: 'From the Contact Form',
+		text: 'and easy to do anywhere, even with Node.js',
+		html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+	}
+	sgMail
+		.send( msg )
+		.then(() => {
 
-// 		})
-// 		.catch(( error ) => {
+			console.log('Email sent')
+			response[body] = {}
+			response[statusCode] = 200
 
-// 			console.error( error )
-// 			response.body({ error: error.message })
-// 			response.statusCode(error.code)
+		})
+		.catch(( error ) => {
 
-// 		})
+			console.error( error )
+			response.body({ error: error.message })
+			response.statusCode(error.code)
+
+		})
 
 
-	// return res
+	return res
 
 }
 
 // const sendgrid = require("@sendgrid/mail")
 // //Your API Key from Sendgrid
-// sendgrid.setApiKey(process.env.GATSBY_SENDGRID_KEY)
+// sendgrid.setApiKey(process.env.SENDGRID_KEY)
 // const message = {
 //   //Your authorized email from SendGrid
-//   from: process.env.GATSBY_SENDGRID_FROM,
-// 	to: process.env.GATSBY_SENDGRID_TO, // Change to your recipient
+//   from: process.env.SENDGRID_FROM,
+// 	to: process.env.SENDGRID_TO, // Change to your recipient
 // }
 
 // const handler = (req, res) => {

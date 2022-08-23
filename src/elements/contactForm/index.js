@@ -1,9 +1,6 @@
 // Import React
 import React from 'react'
 
-// Import Api
-import contactHandler from 'api/mailing'
-
 // Import Elements
 import { Icon } from 'elements'
 
@@ -238,7 +235,7 @@ const MySelectInput = ({ label, ...props }) => {
 const ContactForm = props => {
 
 	const {
-		className
+		className = '',
 	} = props
 
 	const formHeaderClasses = classy([
@@ -305,32 +302,11 @@ const ContactForm = props => {
             .min(3, "Must be 3 characters or more")
             .required("Required"),
         })}
-        onSubmit={ async ( values, { setSubmitting }) => {
+        onSubmit={ ( values, { setSubmitting }) => {
           setSubmitting(true)
-          contactHandler( values )
-					try {
-						const response = await window
-						.fetch(`/api/mailing`, {
-							method: `POST`,
-							headers: {
-								"content-type": "application/json",
-							},
-							body: values,
-						})
-						.then( res => res )
-            console.log(`🚀 ~ file: index.js ~ line 321 ~ onSubmit={ ~ response`, response)
-					// setServerResponse(response)
-					} catch ( e ) {
-
-          	console.log(`🚀 ~ file: index.js ~ line 318 ~ e `, e )
-						
-					}	
           setTimeout(() => {
 						setSubmitting(false)
 					} , 1000 )
-					// setTimeout(() => {
-					// 	Formik.reset
-					// } , 5000 )
         }}
       >
 				{( props ) => {
@@ -362,7 +338,8 @@ const ContactForm = props => {
 					])
 
 					return (
-					<Form { ...formClasses } >
+					<Form { ...formClasses } name="Temporal Contact Form"  method="POST" data-netlify="true" >
+						<input type="hidden" name="subject" value="Contact form DJEddieG.com" />
 						<MyTextInput
 							name='fullName'
 							type='text'

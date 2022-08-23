@@ -5,6 +5,7 @@
   "version": "0.2.0",
   "author": "Kevin Muniz <kevin.muniz@mindin.cloud>",
   "dependencies": {
+    "@netlify/functions": "^1.2.0",
     "@react-icons/all-files": "^4.1.0",
     "@sendgrid/mail": "^7.7.0",
     "bulma": "^0.9.4",

@@ -14,12 +14,13 @@ const Section = props => {
 		children = false,
 		container = true,
 		className = false,
+		...passed
 	} = props
 
 	const sectionClases = classy([  'section' , className ])
 
 	return ( 
-		<section { ...sectionClases } >
+		<section { ...sectionClases } { ...passed } >
 			{/* Render children, usually wrapped by a Container element unless specifically disabled by passing container={ false } */}
 			<Wrapper 
 				condition={ Boolean( container ) } 

@@ -231,6 +231,12 @@ const MySelectInput = ({ label, ...props }) => {
   )
 }
 
+const encode = (data) => {
+	return Object.keys(data)
+		.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+		.join("&");
+}
+
 // And now we can use these
 const ContactForm = props => {
 
@@ -304,6 +310,18 @@ const ContactForm = props => {
         })}
         onSubmit={ ( values, { setSubmitting }) => {
           setSubmitting(true)
+					fetch("/", {
+						method: "POST",
+						headers: { "Content-Type": "application/x-www-form-urlencoded" },
+						body: encode({ "form-name": "Temporal Contact Form", values })
+					})
+						.then(() => {
+              console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ values`, values)
+						})
+						.catch(error =>
+              console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ error`, error)
+						);
+		
           setTimeout(() => {
 						setSubmitting(false)
 					} , 1000 )
@@ -340,6 +358,7 @@ const ContactForm = props => {
 					return (
 					<Form { ...formClasses } name="Temporal Contact Form"  method="POST" data-netlify="true" >
 						<input type="hidden" name="subject" value="Contact form DJEddieG.com" />
+						<input type="hidden" name="form-name" value="Temporal Contact Form" />
 						<MyTextInput
 							name='fullName'
 							type='text'

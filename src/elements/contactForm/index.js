@@ -313,10 +313,10 @@ const ContactForm = props => {
 					fetch("/", {
 						method: "POST",
 						headers: { "Content-Type": "application/x-www-form-urlencoded" },
-						body: encode({ "form-name": "Temporal Contact Form", values })
+						body: encode({ "form-name": "Temporal Contact Form", ...values })
 					})
 						.then(() => {
-              console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ values`, values)
+              console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ sucess`)
 						})
 						.catch(error =>
               console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ error`, error)

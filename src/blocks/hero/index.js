@@ -85,7 +85,7 @@ const ImpactHero = props => {
 			</div>
 			<div { ...bodyClasses } >
 				<div { ...panelClasses } >
-					<p>
+					{/* <p>
 						In addition to the music, DJ Eddie G also offers a variety of services including:</p>
 					<ul>
 						<li>LED Photo Booth</li>
@@ -100,10 +100,11 @@ const ImpactHero = props => {
 						<li>Ceremony Sound</li>
 						<li>CO2 Cannon</li>
 						<li>Crazy Hour</li>
-					</ul>
+					</ul> */}
+					<ContactForm netlifyFunc='sendmail'/>
 				</div>
 				<div { ...formClasses } >
-					<ContactForm/>
+					<ContactForm netlifyFunc='mailing'/>
 				</div>
 			</div>
 		</Section>

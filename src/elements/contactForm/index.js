@@ -238,7 +238,8 @@ const MySelectInput = ({ label, ...props }) => {
 const ContactForm = props => {
 
 	const {
-		className
+		className = '',
+		netlifyFunc = ''
 	} = props
 
 	const formHeaderClasses = classy([
@@ -310,7 +311,7 @@ const ContactForm = props => {
           contactHandler( values )
 					try {
 						const response = await window
-						.fetch(`/api/mailing`, {
+						.fetch(`/.netlify/functions/${netlifyFunc}`, {
 							method: `POST`,
 							headers: {
 								"content-type": "application/json",

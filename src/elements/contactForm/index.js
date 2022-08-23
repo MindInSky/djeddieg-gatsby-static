@@ -20,7 +20,6 @@ import { Formik, Form, useField } from 'formik'
 import classy from 'modifiers/classy'
 import getValue from 'modifiers/getValue'
 
-
 const fieldWrapperClasses = ( className ) => classy([
 	'field', //bulma 'field' class
 	className
@@ -306,9 +305,26 @@ const ContactForm = props => {
             .min(3, "Must be 3 characters or more")
             .required("Required"),
         })}
-        onSubmit={ ( values, { setSubmitting }) => {
+        onSubmit={ async ( values, { setSubmitting }) => {
           setSubmitting(true)
           contactHandler( values )
+					try {
+						const response = await window
+						.fetch(`/api/form`, {
+							method: `POST`,
+							headers: {
+								"content-type": "application/json",
+							},
+							body: values,
+						})
+						.then( res => res )
+            console.log(`🚀 ~ file: index.js ~ line 321 ~ onSubmit={ ~ response`, response)
+					// setServerResponse(response)
+					} catch ( e ) {
+
+          	console.log(`🚀 ~ file: index.js ~ line 318 ~ e `, e )
+						
+					}	
           setTimeout(() => {
 						setSubmitting(false)
 					} , 1000 )

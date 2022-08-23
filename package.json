@@ -6,6 +6,7 @@
   "author": "Kevin Muniz <kevin.muniz@mindin.cloud>",
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "@sendgrid/mail": "^7.7.0",
     "bulma": "^0.9.4",
     "dotenv": "^16.0.1",
     "formik": "^2.2.9",

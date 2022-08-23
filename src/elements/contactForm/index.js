@@ -310,7 +310,7 @@ const ContactForm = props => {
           contactHandler( values )
 					try {
 						const response = await window
-						.fetch(`/api/form`, {
+						.fetch(`/api/mailing`, {
 							method: `POST`,
 							headers: {
 								"content-type": "application/json",

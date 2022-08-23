@@ -1,16 +1,16 @@
-[functions]
+# [functions]
   # directory = "lambdas/"
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
-[[plugins]]
+# [[plugins]]
   # package = "netlify-plugin-submit-sitemap"
 
   # [plugins.inputs]
 
   # The base url of your site (optional, default = main URL set in Netlify)
-  baseUrl = "https://www.8x8.com"
+  # baseUrl = "https://www.mindin.cloud"
 
   # Path to the sitemap URL (optional, default = /sitemap.xml)
   # sitemapPath = "/sitemap/sitemap-index.xml"
@@ -22,7 +22,7 @@
   # providers = [ "google", "yandex" ]
 
 # Testing build settings for disabling post processing on this specific branch
-[build.processing]
+# [build.processing]
   # skip_processing = false
 
 # [build.processing.css]

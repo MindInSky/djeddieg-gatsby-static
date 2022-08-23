@@ -2,3 +2,7 @@
   background-color: transparent;
   backdrop-filter: $blur;
 }
+
+option {
+  @extend .input;
+}

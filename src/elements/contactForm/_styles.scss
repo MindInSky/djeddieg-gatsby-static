@@ -1,1 +1,104 @@
 // Currently placeholders
+.contact-form {
+
+  .input-generic { // our own input styles
+
+    background: transparent;
+    backdrop-filter: blur(4px) brightness(3);
+
+    &::placeholder {
+
+      color: $ivory;
+
+    }
+
+  }
+
+  .input-select, .input-phone {
+
+    margin-bottom: 0;
+
+    .field-label {
+
+      margin-right: 0;
+
+    }
+
+    .field-body {
+
+      flex: auto;
+
+    }
+    
+  }
+
+  .input-textarea {
+    max-height: 10em;
+    min-height: 3em;
+
+    &::-webkit-input-placeholder {
+      color: $ivory ;
+    }
+  }
+
+  .time-picker-area {
+
+    margin-bottom: 0;
+
+    .field-date, .field-time {
+
+      margin-bottom: 0;
+      position: relative;
+
+      .input-generic {
+
+        padding-right: 0.5rem;
+
+      }
+
+      .icon-calendar, .icon-clock {
+          
+        color: $ivory !important;
+
+      }
+
+      .input-error {
+
+        margin-top: 0.5rem;
+        margin-right: 0.75rem;
+        backdrop-filter: brightness(0.6);
+
+      }
+
+    }
+
+  }
+
+  .select:not(.is-multiple):not(.is-loading)::after {
+
+    border-color: $ivory;
+
+  }
+
+  input[type="time" i], input[type="date" i] {
+    &::-webkit-calendar-picker-indicator {
+
+      opacity: 0;
+
+    }
+  }
+
+  // Error styling
+  .input-error {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    padding: 0.2rem;
+    margin-right: 0.2rem;
+    border-radius: $radius-large;
+    backdrop-filter: brightness(0.3);
+
+  }
+}

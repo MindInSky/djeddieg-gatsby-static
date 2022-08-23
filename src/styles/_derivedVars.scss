@@ -1,0 +1,150 @@
+// Bulma Required Colors
+$light:				     	$ivory;
+// $dark:    			   	$extra-dark-grey;
+
+// Find Primary Color Inverts
+$ivory-invert:				findColorInvert($ivory);
+$white:								$ivory;
+
+// Find Secondary Color Inverts
+// $red-invert:				findColorInvert($red);
+// $red-dark-invert:			findColorInvert($red-dark);
+// $red-light-invert:			findColorInvert($red-light);
+// $black-invert:				findColorInvert($black);
+
+// Find Tertiary Color Invers
+// $blue-invert:				findColorInvert($blue);
+// $blue-light-invert: 		findColorInvert($blue-light);
+// $yellow-invert:				findColorInvert($yellow);
+
+// Find System Colors Inverts
+// $system-blue-invert:		findColorInvert($system-blue);
+// $system-green-invert:		findColorInvert($system-green);
+// $system-orange-invert:		findColorInvert($system-orange);
+// $system-grey-invert:		findColorInvert($system-grey);
+// $system-red-invert:			findColorInvert($system-red);
+
+// Find Scale Colors Inverts
+// $extra-dark-grey-invert:	findColorInvert($extra-dark-grey);
+// $dark-grey-invert:			findColorInvert($dark-grey);
+// $medium-grey-invert:		findColorInvert($medium-grey);
+// $medium-light-grey-invert:	findColorInvert($medium-light-grey);
+// $light-grey-invert:			findColorInvert($light-grey);
+
+// Find Bulma Required Color Inverts
+$light-invert:				findColorInvert($light);
+// $dark-invert:				findColorInvert($dark);
+
+// Icon
+// $icon-primary: $blue-light;
+// $icon-secondary: $dark-grey;
+// $icon-tertiary: $dark-grey;
+
+// Color Aliases
+// $primary: $white;
+// $primary-invert: $white-invert;
+
+// $secondary: $red;
+// $secondary-invert: $red-invert;
+
+// $brand: $red;
+// $brand-invert: $red-invert;
+
+// $info: $system-blue;
+// $info-invert: $system-blue-invert;
+
+// $success: $system-green;
+// $success-invert: $system-green-invert;
+
+// $warning: $system-orange;
+// $warning-invert: $system-orange-invert;
+
+// $danger: $system-red;
+// $danger-invert: $system-red-invert;
+
+// $disabled: $system-grey;
+// $disabled-invert: $system-grey-invert;
+
+// General colors
+// $background: $white;
+
+// Text colors
+$text: 				$ivory;
+// $text-invert: 		$white; //Original color was $extra-dark-grey
+// $text-light: 		$medium-grey;
+// $text-strong: 		$extra-dark-grey;
+
+// Link colors
+// $link: $blue;
+// $link-invert: $blue-invert;
+// $link-visited: lighten($blue, 8%);
+
+// $link-hover: darken($red, 8%);
+// $link-hover-border: none;
+
+// $link-focus: darken($red, 8%);
+// $link-focus-border: $system-blue;
+
+// $link-active: lighten($red, 8%);
+// $link-active-border: darken($system-blue, 8%);
+
+// Animation
+// $motion: $speed $easing;
+
+
+// Lists and maps
+$social-colors: (
+	"brand-color-facebook": ($brand-color-facebook, $white),
+	"brand-color-twitter": ($brand-color-twitter, $white),
+	"brand-color-youtube": ($brand-color-youtube, $white),
+	"brand-color-instagram": ($brand-color-instagram, $white),
+);
+
+$custom-colors: mergeColorMaps(
+	(
+		"ivory": ($ivory, $ivory-invert),
+		// "medium-light-grey": ($medium-light-grey, $medium-light-grey-invert),
+		// "medium-grey": ($medium-grey, $medium-grey-invert),
+		// "dark-grey": ($dark-grey, $dark-grey-invert),
+		// "extra-dark-grey": ($extra-dark-grey, $extra-dark-grey-invert),
+		// "teal": ($teal, $teal-invert),
+		// "blue": ($blue, $blue-invert),
+		// "red": ($red, $red-invert),
+		// "system-blue": ($system-blue, $system-blue-invert),
+		// "system-green": ($system-green, $system-green-invert),
+		// "system-orange": ($system-orange, $system-orange-invert),
+		// "system-grey": ($system-grey, $system-grey-invert),
+		// "system-red": ($system-red, $system-red-invert),
+		// "secondary": ($secondary, $secondary-invert),
+		// "brand": ($brand, $brand-invert),
+		// "disabled": ($disabled, $disabled-invert),
+		// "red-dark": ($red-dark, $red-dark-invert),
+		// "red-light": ($red-light, $red-light-invert),
+		// "yellow": ($yellow, $yellow-invert),
+		// "blue-light": ($blue-light, $blue-light-invert),
+		// "static-blue": ($static-blue, $white),
+		// "static-middle-light-grey" : ($static-middle-light-grey, $white),
+	),
+	$social-colors
+);
+
+$colors: mergeColorMaps(
+	(
+		// "white": ($white, $black),
+		// "black": ($black, $white),
+		// "light": ($light, $light-invert),
+		// "dark": ($dark, $dark-invert),
+		// "primary": ($primary, $primary-invert),
+		// "link": ($link, $link-invert),
+		// "info": ($info, $info-invert),
+		// "success": ($success, $success-invert),
+		// "warning": ($warning, $warning-invert),
+		// "danger": ($danger, $danger-invert)
+	),
+	$custom-colors
+);
+
+@include colorInverts( $colors );
+
+// Sizes
+// $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 $size-8 $size-9 $size-10 $size-11 $size-12 $size-13 $size-14 $size-15 $ludacris-size;

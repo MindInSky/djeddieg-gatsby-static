@@ -345,10 +345,6 @@ const ContactForm = props => {
 						// 'is-loading'
 					])
 
-          console.log(`🚀 ~ file: index.js ~ line 348 ~ is.empty( touchedAndErrored )`, is.empty( touchedAndErrored ))
-          console.log(`🚀 ~ file: index.js ~ line 348 ~ is.empty( touchedAndErrored )`, touchedAndErrored.length )
-          console.log(`🚀 ~ file: index.js ~ line 350 ~ Object.keys(touched).length < 6`, Object.keys(touched).length > 6 )
-
 					return (
 					<Form { ...formClasses } >
 						<MyTextInput

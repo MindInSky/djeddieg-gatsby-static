@@ -302,14 +302,11 @@ const ContactForm = props => {
             .min(3, "Must be 3 characters or more")
             .required("Required"),
         })}
-        onSubmit={ async ( values, { setSubmitting }) => {
+        onSubmit={ ( values, { setSubmitting }) => {
           setSubmitting(true)
           setTimeout(() => {
 						setSubmitting(false)
 					} , 1000 )
-					// setTimeout(() => {
-					// 	Formik.reset
-					// } , 5000 )
         }}
       >
 				{( props ) => {

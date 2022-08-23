@@ -36,7 +36,7 @@ exports.handler = async ( event, context, { req, res } ) => {
 		})
 
 
-	return res
+	return response
 
 }
 

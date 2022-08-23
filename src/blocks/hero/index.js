@@ -103,7 +103,7 @@ const ImpactHero = props => {
 					</ul>
 				</div>
 				<div { ...formClasses } >
-					<ContactForm netlifyFunc='sendmail'/>
+					<ContactForm/>
 				</div>
 			</div>
 		</Section>

@@ -1,9 +1,6 @@
 // Import React
 import React from 'react'
 
-// Import Api
-import contactHandler from 'api/mailing'
-
 // Import Elements
 import { Icon } from 'elements'
 
@@ -239,7 +236,6 @@ const ContactForm = props => {
 
 	const {
 		className = '',
-		netlifyFunc = ''
 	} = props
 
 	const formHeaderClasses = classy([
@@ -308,24 +304,6 @@ const ContactForm = props => {
         })}
         onSubmit={ async ( values, { setSubmitting }) => {
           setSubmitting(true)
-          contactHandler( values )
-					try {
-						const response = await window
-						.fetch(`/.netlify/functions/${netlifyFunc}`, {
-							method: `POST`,
-							headers: {
-								"content-type": "application/json",
-							},
-							body: values,
-						})
-						.then( res => res )
-            console.log(`🚀 ~ file: index.js ~ line 321 ~ onSubmit={ ~ response`, response)
-					// setServerResponse(response)
-					} catch ( e ) {
-
-          	console.log(`🚀 ~ file: index.js ~ line 318 ~ e `, e )
-						
-					}	
           setTimeout(() => {
 						setSubmitting(false)
 					} , 1000 )
@@ -363,7 +341,8 @@ const ContactForm = props => {
 					])
 
 					return (
-					<Form { ...formClasses } >
+					<Form { ...formClasses } name="Temporal Contact Form"  method="POST" data-netlify="true" >
+						<input type="hidden" name="subject" value="Contact form DJEddieG.com" />
 						<MyTextInput
 							name='fullName'
 							type='text'

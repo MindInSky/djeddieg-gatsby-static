@@ -8,15 +8,15 @@ import { ContactForm } from 'elements'
 import { Section } from 'layouts'
 
 // Import Libraries
-import { StaticImage } from 'gatsby-plugin-image'
+// import { StaticImage } from 'gatsby-plugin-image'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
 
-const background_image = {
-	src : '../../../static/images/equipment_setup.jpg',
-	alt : 'White equipment with blue lights'
-}
+// const background_image = {
+// 	src : '../../../static/images/equipment_setup.jpg',
+// 	alt : 'White equipment with blue lights'
+// }
 
 const ImpactHero = props => {
 
@@ -33,9 +33,9 @@ const ImpactHero = props => {
 		className
 	])
 
-	const backgroundClasses = classy([
-		'impact-background',
-	])
+	// const backgroundClasses = classy([
+	// 	'impact-background',
+	// ])
 
 	const topWrapperClasses = classy([
 		'announcement',
@@ -73,6 +73,17 @@ const ImpactHero = props => {
 		'is-5'
 	])
 
+	const phoneLinkClasses = classy([
+		'subtitle',
+		'is-5',
+		'is-link',
+		'has-text-weight-bold',
+		'has-text-centered',
+		'is-rounded',
+		'button',
+		'is-success'
+	])
+
 	return ( <>
 		<Section { ...heroClasses } container = { false } >
 			<div { ...topWrapperClasses } >
@@ -101,18 +112,29 @@ const ImpactHero = props => {
 						<li>CO2 Cannon</li>
 						<li>Crazy Hour</li>
 					</ul>
+					<div className='has-text-weight-bold'>
+						<p>Let's plan your event, reach me at:</p>
+						<div className='is-flex is-justify-content-center '>
+							<a 
+								href='tel:+1817-706-5162'
+								{ ...phoneLinkClasses }
+							>
+								817-706-5162
+							</a>
+						</div>
+					</div>
 				</div>
 				<div { ...formClasses } >
 					<ContactForm/>
 				</div>
 			</div>
 		</Section>
-		<div { ...backgroundClasses }>
+		{/* <div { ...backgroundClasses }>
 			<StaticImage
 				{ ...background_image }
 				className='image is-16by9'
 			/>
-		</div>
+		</div> */}
 	</>)
 }
 

@@ -115,11 +115,12 @@
   .form-filled {
    
     margin-bottom: 0;
+    padding-right: 1.5rem;
     position: absolute;
     z-index: 5;
     top: 0;
     bottom: 10%;
-    border: solid 5px $success;
+    border: solid 5px;
     border-radius: $radius-large;
     display: flex;
     align-items: center;
@@ -135,15 +136,33 @@
         pointer-events: none;
       
       }
+
+      .phone-link {
+
+        margin-top: 1rem;
+
+      }
   
     }
   
     .form-filled-delete {
       
-      border: 1px $danger solid;
+      background: #E93030;
   
     }
   
+    &.has-error {
+
+      border-color: $danger;
+
+    }
+
+    &.has-submitted {
+
+      border-color: $success;
+      
+    }
+
   }
 
 }

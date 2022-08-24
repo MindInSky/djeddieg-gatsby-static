@@ -73,6 +73,17 @@ const ImpactHero = props => {
 		'is-5'
 	])
 
+	const phoneLinkClasses = classy([
+		'subtitle',
+		'is-5',
+		'is-link',
+		'has-text-weight-bold',
+		'has-text-centered',
+		'is-rounded',
+		'button',
+		'is-success'
+	])
+
 	return ( <>
 		<Section { ...heroClasses } container = { false } >
 			<div { ...topWrapperClasses } >
@@ -101,6 +112,17 @@ const ImpactHero = props => {
 						<li>CO2 Cannon</li>
 						<li>Crazy Hour</li>
 					</ul>
+					<div className='has-text-weight-bold'>
+						<p>Let's plan your event, reach me at:</p>
+						<div className='is-flex is-justify-content-center '>
+							<a 
+								href='tel:+1817-706-5162'
+								{ ...phoneLinkClasses }
+							>
+								817-706-5162
+							</a>
+						</div>
+					</div>
 				</div>
 				<div { ...formClasses } >
 					<ContactForm/>

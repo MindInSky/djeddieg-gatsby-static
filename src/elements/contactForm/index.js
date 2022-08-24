@@ -8,6 +8,7 @@ import { Icon } from 'elements'
 import { BsCalendar } from '@react-icons/all-files/bs/BsCalendar'
 import { BsClock } from '@react-icons/all-files/bs/BsClock'
 import { FaCheck } from '@react-icons/all-files/fa/FaCheck'
+import { IoMdWarning } from '@react-icons/all-files/io/IoMdWarning'
 
 // Import Libraries
 import is from 'is_js'
@@ -244,8 +245,6 @@ const ContactForm = props => {
 
 	const [ formStatus, setFormStatus ] = useState( 'empty' )
 	
-	console.log(`🚀 ~ file: index.js ~ line 245 ~ ContactForm ~ formStatus`, formStatus)
-
 	const {
 		className = '',
 	} = props
@@ -273,7 +272,6 @@ const ContactForm = props => {
 	])
 
 	const deleteHandler = () => {
-		console.log(`🚀 ~ file: index.js ~ line 277 ~ deleteHandler ~ empty`)
 		setFormStatus('empty') 
 	}
 
@@ -284,22 +282,59 @@ const ContactForm = props => {
 		!formStatus === 'submitted' && 'is-hidden',
 		!formStatus === 'submitted' && 'is-not-clickable'
 	])
+
+	const notificationClasses = classy([
+		'form-filled',
+		'notification',
+		formStatus === 'errored' && 'has-error',
+		formStatus === 'submitted' && 'has-submitted'
+	])
 	
+	const phoneLinkClasses = classy([
+		'subtitle',
+		'is-6',
+		'has-text-weight-bold',
+		'has-text-centered',
+		'is-rounded',
+		'button',
+		'is-success',
+		'is-small',
+		'phone-link'
+	])
+
   return ( <>
 			<h2 { ...formHeaderClasses }>
 				Get in contact!
 			</h2>
 			<div { ...formWrapperClasses } >
-				{ formStatus === 'submitted' &&
-					<div className='form-filled notification'>
+				{ formStatus !== 'empty' &&
+					<div { ...notificationClasses } >
 					<button 
 						onClick={ deleteHandler } 
 						{ ...deleteClasses }
 						aria-label="Close Notification"
 					/>
-					<p className='form-filled-content'>
-						Thanks for getting in touch, someone will reach out shortly.
-					</p>
+					<div className='form-filled-content'>
+						{ formStatus === 'submitted' ? 
+							<p>
+								Thanks for getting in touch, someone will reach out shortly.
+							</p>
+						: 
+							formStatus === 'errored' && <div>
+								<p>
+									An error happened, please try again or contact us to:
+								</p>
+								<div className='is-flex is-justify-content-center '>
+									<a 
+										href='tel:+1817-706-5162'
+										{ ...phoneLinkClasses }
+									>
+										817-706-5162
+									</a>
+								</div>
+							</div>
+						}
+					</div>
 				</div>
 				}
 				<Formik
@@ -359,18 +394,28 @@ const ContactForm = props => {
 							headers: { "Content-Type": "application/x-www-form-urlencoded" },
 							body: encode({ "form-name": "Temporal Contact Form", ...newValues })
 						})
-							.then(( props ) => {
+							.then(( res ) => {
 								
-								console.log(`🚀 ~ file: index.js ~ line 461 ~ .then ~ props`, props)
-								setFormStatus('submitted')
-								resetForm()
+								if ( getValue( res, 'ok', false ) ){
+
+									setFormStatus('submitted')
+									resetForm()
+
+								} else if ( !getValue( res, 'ok', false ) ){
+									
+									setFormStatus('errored')
+									
+								}
+
 							})
 							.catch( error =>
+
 								setFormStatus('errored')
+								
 							);
 						setTimeout(() => {
 							setSubmitting(false)
-						} , 1000 )
+						} , 600 )
 					}}
 				>
 					{( { errors, touched, isSubmitting } ) => {
@@ -393,7 +438,7 @@ const ContactForm = props => {
 							'is-outlined',
 							'is-rounded',
 							'is-fullwidth',
-							!is.empty( touchedAndErrored ) && 'is-danger',
+							( !is.empty( touchedAndErrored ) || formStatus === 'errored' ) && 'is-danger',
 							is.empty( errors ) && 'is-success',
 							isSubmitting && 'is-loading'
 							// 'is-loading'
@@ -450,9 +495,16 @@ const ContactForm = props => {
 								<button 
 									type='submit'
 									{ ...buttonClasses }
-									disabled={ !( is.empty( touchedAndErrored ) && ( Object.keys( touched ).length > 6 ) ) }
+									disabled={ !( is.empty( touchedAndErrored ) && ( Object.keys( touched ).length > 6 ) ) || formStatus === 'errored' }
 								>
-									{ formStatus === 'submitted' ? <Icon><FaCheck/></Icon> : 'Reach out now!' }
+									{ formStatus === 'submitted' ? 
+										<Icon><FaCheck/></Icon> 
+									: 
+										formStatus === 'errored' ?
+										<Icon><IoMdWarning/></Icon> 
+										:
+										'Reach out now!' 
+									}
 								</button>
 							</div>
 						</Form>

@@ -89,9 +89,15 @@ const ImpactHero = props => {
 			<div { ...topWrapperClasses } >
 				<div { ...topClasses } >
 					<h2 className='title is-3'> Services Offered </h2>
-					<p className='subtitle is-6'>DJ Eddie G is happy to meet with clients for a consultation before the big day. During this time together, you can discuss music options, timeline, bliingual MC services, and the do-not-play list. Proof of liabliity insurance can be provided. He can provide all his own equipment, such as a premium lighting for the dancefloor, a sound/PA system, microphones, up-lighting, TVs, and a projector. 
-						
-					DJ Eddie G has a large selection of music genres to please any crowd. </p> 
+					<p className='subtitle is-5'>
+						DJ Eddie G is happy to meet with clients for a consultation before the big day.
+					</p> 
+					<p>
+						During this time together, you can discuss music options, timeline, bilingual MC services, and the do-not-play list. Proof of liability insurance can be provided. He can provide all his own equipment, such as premium lighting for the dancefloor, a sound/PA system, microphones, up-lighting, TVs, and a projector. 
+					</p>
+					<p>
+						DJ Eddie G has a large selection of music genres to please any crowd.
+					</p> 
 				</div>
 			</div>
 			<div { ...bodyClasses } >

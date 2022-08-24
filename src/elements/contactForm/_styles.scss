@@ -1,6 +1,8 @@
 // Currently placeholders
 .contact-form {
 
+  position: relative;
+
   .input-generic { // our own input styles
 
     background: transparent;
@@ -64,6 +66,8 @@
 
       .input-error {
 
+        // Allow pointer events through these, they don't need to be touched
+        pointer-events: none;
         margin-top: 0.75rem;
         margin-right: 0.75rem;
         backdrop-filter: brightness(0.6);
@@ -99,6 +103,39 @@
     margin-right: 0.2rem;
     border-radius: $radius-large;
     backdrop-filter: brightness(0.3);
+
+  }
+
+  .form-filled {
+   
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 10%;
+    border: solid 5px $success;
+    border-radius: $radius-large;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: brightness(0.5) blur(3px);
+
+    .form-filled-content {
+      
+      padding: 1rem;
+      
+      &.is-not-clickable {
+      
+        pointer-events: none;
+      
+      }
+
+    }
+
+    .form-filled-delete {
+      
+      border: 1px $danger solid;
+
+    }
 
   }
 }

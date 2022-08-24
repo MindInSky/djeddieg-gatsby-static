@@ -10,6 +10,7 @@ import { BsClock } from '@react-icons/all-files/bs/BsClock'
 
 // Import Libraries
 import is from 'is_js'
+import dayjs from 'dayjs'
 import * as Yup from 'yup'
 import { Formik, Form, useField } from 'formik'
 
@@ -274,7 +275,8 @@ const ContactForm = props => {
           // acceptedTerms: false, // added for our checkbox
           serviceType: "", // added for our select
           dateOfEvent: "", // added for our select
-          timeOfEvent: "" // added for our select
+          timeOfEvent: "", // added for our select
+					message:""
         }}
         validationSchema={ Yup.object({
           fullName: Yup.string()
@@ -308,28 +310,35 @@ const ContactForm = props => {
             .min(3, "Must be 3 characters or more")
             .required("Required"),
         })}
-        onSubmit={ ( values, { setSubmitting }) => {
+        onSubmit={ ( values, { setSubmitting, setStatus, resetForm }) => {
+
+					let newValues = {...values}
+
+					const newDate = dayjs( getValue( values , 'dateOfEvent', '') ).format('MMMM DD, YYYY')
+
+					newValues['dateOfEvent'] = newDate
+
           setSubmitting(true)
 					fetch("/", {
 						method: "POST",
 						headers: { "Content-Type": "application/x-www-form-urlencoded" },
-						body: encode({ "form-name": "Temporal Contact Form", ...values })
+						body: encode({ "form-name": "Temporal Contact Form", ...newValues })
 					})
 						.then(() => {
-              console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ sucess`)
+							setStatus('submitted')
 						})
-						.catch(error =>
-              console.log(`🚀 ~ file: index.js ~ line 320 ~ .then ~ error`, error)
+						.catch( error =>
+							setStatus('errored')
 						);
-		
           setTimeout(() => {
+						setStatus('submitted')
 						setSubmitting(false)
-					} , 1000 )
+					} , 2000 )
         }}
       >
-				{( props ) => {
+				{( { errors, touched, isSubmitting , status, setStatus, resetForm } ) => {
 
-					const { errors, touched, isSubmitting }  = props
+					console.log(`🚀 ~ file: index.js ~ line 342 ~ ContactForm ~ status`, status)
 
 					const touchedAndErrored = []
 
@@ -355,10 +364,38 @@ const ContactForm = props => {
 						// 'is-loading'
 					])
 
+					const deleteHandler = ( called = false ) => {
+						console.log(`🚀 ~ file: index.js ~ line 369 ~ deleteHandler ~ called`, called)
+						if ( called ) {
+							resetForm()
+							setStatus('emptied') 
+						}
+					}
+
+					const deleteClasses = classy([
+						'form-filled-delete',
+						'delete',
+						'is-large',
+						!status === 'submitted' && 'is-hidden',
+						!status === 'submitted' && 'is-not-clickable'
+					])
+
 					return (
-					<Form { ...formClasses } name="Temporal Contact Form"  method="POST" data-netlify="true" >
-						<input type="hidden" name="subject" value="Contact form DJEddieG.com" />
-						<input type="hidden" name="form-name" value="Temporal Contact Form" />
+					<Form { ...formClasses } method='POST' data-netlify='true' >
+						<input type='hidden' name='subject' value='Contact form DJEddieG.com' />
+						<input type='hidden' name='form-name' value='Temporal Contact Form' />
+						{/* { status === 'submitted' &&
+							<div className='form-filled notification'>
+							<button 
+								onClick={ deleteHandler( true ) } 
+								{ ...deleteClasses }
+								aria-label="Close Notification"
+							/>
+							<p className='form-filled-content'>
+								Thanks for getting in touch, someone will reach out shortly.
+							</p>
+						</div>
+						} */}
 						<MyTextInput
 							name='fullName'
 							type='text'

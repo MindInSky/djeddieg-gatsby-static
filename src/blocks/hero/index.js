@@ -8,15 +8,15 @@ import { ContactForm } from 'elements'
 import { Section } from 'layouts'
 
 // Import Libraries
-import { StaticImage } from 'gatsby-plugin-image'
+// import { StaticImage } from 'gatsby-plugin-image'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
 
-const background_image = {
-	src : '../../../static/images/equipment_setup.jpg',
-	alt : 'White equipment with blue lights'
-}
+// const background_image = {
+// 	src : '../../../static/images/equipment_setup.jpg',
+// 	alt : 'White equipment with blue lights'
+// }
 
 const ImpactHero = props => {
 
@@ -33,9 +33,9 @@ const ImpactHero = props => {
 		className
 	])
 
-	const backgroundClasses = classy([
-		'impact-background',
-	])
+	// const backgroundClasses = classy([
+	// 	'impact-background',
+	// ])
 
 	const topWrapperClasses = classy([
 		'announcement',
@@ -129,12 +129,12 @@ const ImpactHero = props => {
 				</div>
 			</div>
 		</Section>
-		<div { ...backgroundClasses }>
+		{/* <div { ...backgroundClasses }>
 			<StaticImage
 				{ ...background_image }
 				className='image is-16by9'
 			/>
-		</div>
+		</div> */}
 	</>)
 }
 

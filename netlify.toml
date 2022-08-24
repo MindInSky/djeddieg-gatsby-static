@@ -1,43 +1,43 @@
-# [functions]
-  # directory = "lambdas/"
+[build]
+  functions = "netlify/functions"
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
 # [[plugins]]
-  # package = "netlify-plugin-submit-sitemap"
+# package = "netlify-plugin-submit-sitemap"
 
-  # [plugins.inputs]
+# [plugins.inputs]
 
-  # The base url of your site (optional, default = main URL set in Netlify)
-  # baseUrl = "https://www.mindin.cloud"
+# The base url of your site (optional, default = main URL set in Netlify)
+# baseUrl = "https://www.mindin.cloud"
 
-  # Path to the sitemap URL (optional, default = /sitemap.xml)
-  # sitemapPath = "/sitemap/sitemap-index.xml"
+# Path to the sitemap URL (optional, default = /sitemap.xml)
+# sitemapPath = "/sitemap/sitemap-index.xml"
 
-  # Time in seconds to not submit the sitemap after successful submission
-  # ignorePeriod = 86400
+# Time in seconds to not submit the sitemap after successful submission
+# ignorePeriod = 86400
 
-  # Enabled providers to submit sitemap to (optional, default = 'google', 'yandex'). Possible providers are currently only 'google', 'yandex'.
-  # providers = [ "google", "yandex" ]
+# Enabled providers to submit sitemap to (optional, default = 'google', 'yandex'). Possible providers are currently only 'google', 'yandex'.
+# providers = [ "google", "yandex" ]
 
 # Testing build settings for disabling post processing on this specific branch
 # [build.processing]
-  # skip_processing = false
+# skip_processing = false
 
 # [build.processing.css]
-  # bundle = false
-  # minify = false
+# bundle = false
+# minify = false
 
 # [build.processing.js]
-  # bundle = false
-  # minify = false
+# bundle = false
+# minify = false
 
 # [build.processing.html]
-  # pretty_urls = false
+# pretty_urls = false
 
 # [build.processing.images]
-  # compress = false
+# compress = false
 
 [dev]
   command = "gatsby develop"

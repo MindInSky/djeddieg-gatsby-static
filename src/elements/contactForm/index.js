@@ -390,7 +390,7 @@ const ContactForm = props => {
 						console.log(`🚀 ~ file: index.js ~ line 390 ~ ContactForm ~ newValues`, newValues)
 
 						setSubmitting(true)
-						fetch("/", {
+						fetch("/.netlify/functions/sendmail", {
 							method: "POST",
 							headers: { "Content-Type": "application/x-www-form-urlencoded" },
 							body: encode({ "form-name": "Temporal Contact Form", ...newValues })

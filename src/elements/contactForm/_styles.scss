@@ -106,8 +106,15 @@
 
   }
 
+}
+
+.form-wrapper {
+
+  position: relative;
+
   .form-filled {
    
+    margin-bottom: 0;
     position: absolute;
     z-index: 5;
     top: 0;
@@ -118,7 +125,7 @@
     align-items: center;
     background-color: transparent;
     backdrop-filter: brightness(0.5) blur(3px);
-
+  
     .form-filled-content {
       
       padding: 1rem;
@@ -128,14 +135,15 @@
         pointer-events: none;
       
       }
-
+  
     }
-
+  
     .form-filled-delete {
       
       border: 1px $danger solid;
-
+  
     }
-
+  
   }
+
 }

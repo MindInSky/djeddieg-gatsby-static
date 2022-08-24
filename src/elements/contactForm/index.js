@@ -1,5 +1,5 @@
 // Import React
-import React from 'react'
+import React, { useState } from 'react'
 
 // Import Elements
 import { Icon } from 'elements'
@@ -7,6 +7,7 @@ import { Icon } from 'elements'
 // Import Icon
 import { BsCalendar } from '@react-icons/all-files/bs/BsCalendar'
 import { BsClock } from '@react-icons/all-files/bs/BsClock'
+import { FaCheck } from '@react-icons/all-files/fa/FaCheck'
 
 // Import Libraries
 import is from 'is_js'
@@ -241,6 +242,10 @@ const encode = (data) => {
 // And now we can use these
 const ContactForm = props => {
 
+	const [ formStatus, setFormStatus ] = useState( 'empty' )
+	
+	console.log(`🚀 ~ file: index.js ~ line 245 ~ ContactForm ~ formStatus`, formStatus)
+
 	const {
 		className = '',
 	} = props
@@ -263,194 +268,197 @@ const ContactForm = props => {
 		'is-mobile'
 	])
 
+	const formWrapperClasses = classy([
+		'form-wrapper'
+	])
+
+	const deleteHandler = () => {
+		console.log(`🚀 ~ file: index.js ~ line 277 ~ deleteHandler ~ empty`)
+		setFormStatus('empty') 
+	}
+
+	const deleteClasses = classy([
+		'form-filled-delete',
+		'delete',
+		'is-large',
+		!formStatus === 'submitted' && 'is-hidden',
+		!formStatus === 'submitted' && 'is-not-clickable'
+	])
+	
   return ( <>
 			<h2 { ...formHeaderClasses }>
 				Get in contact!
 			</h2>
-      <Formik
-        initialValues={{
-          fullName: "",
-          email: "",
-					phoneNumber : "",
-          // acceptedTerms: false, // added for our checkbox
-          serviceType: "", // added for our select
-          dateOfEvent: "", // added for our select
-          timeOfEvent: "", // added for our select
-					message:""
-        }}
-        validationSchema={ Yup.object({
-          fullName: Yup.string()
-            .min(3, "Must be 3 characters or more")
-            .required("Required"),
-          email: Yup.string()
-            .email("Invalid email addresss")
-            .required("Required"),
-					phoneNumber: Yup.string()
-						.matches(
-							/^[0-9]{6,}$/,
-							"Phone number is not valid"
-						)
-            .required("Required"),
-          // acceptedTerms: Yup.boolean()
-          //   .required("Required")
-          //   .oneOf([true], "You must accept the terms and conditions."),
-					serviceType: Yup.string()
-            // specify the set of valid values for job type
-            // @see http://bit.ly/yup-mixed-oneOf
-            .oneOf(
-              ["Wedding", "Quinceañera", "Sweet 16", "Corporate Event", "Other"],
-              "Invalid Job Type"
-            )
-            .required("Required"),
-					dateOfEvent : Yup.string()
-						.required("Required"),
-					timeOfEvent : Yup.string()
-						.required("Required"),
-					message: Yup.string()
-            .min(3, "Must be 3 characters or more")
-            .required("Required"),
-        })}
-        onSubmit={ ( values, { setSubmitting, setStatus, resetForm }) => {
+			<div { ...formWrapperClasses } >
+				{ formStatus === 'submitted' &&
+					<div className='form-filled notification'>
+					<button 
+						onClick={ deleteHandler } 
+						{ ...deleteClasses }
+						aria-label="Close Notification"
+					/>
+					<p className='form-filled-content'>
+						Thanks for getting in touch, someone will reach out shortly.
+					</p>
+				</div>
+				}
+				<Formik
+					initialValues={{
+						fullName: "",
+						email: "",
+						phoneNumber : "",
+						// acceptedTerms: false, // added for our checkbox
+						serviceType: "", // added for our select
+						dateOfEvent: "", // added for our select
+						timeOfEvent: "", // added for our select
+						message:""
+					}}
+					validationSchema={ Yup.object({
+						fullName: Yup.string()
+							.min(3, "Must be 3 characters or more")
+							.required("Required"),
+						email: Yup.string()
+							.email("Invalid email addresss")
+							.required("Required"),
+						phoneNumber: Yup.string()
+							.matches(
+								/^[0-9]{6,}$/,
+								"Phone number is not valid"
+							)
+							.required("Required"),
+						// acceptedTerms: Yup.boolean()
+						//   .required("Required")
+						//   .oneOf([true], "You must accept the terms and conditions."),
+						serviceType: Yup.string()
+							// specify the set of valid values for job type
+							// @see http://bit.ly/yup-mixed-oneOf
+							.oneOf(
+								["Wedding", "Quinceañera", "Sweet 16", "Corporate Event", "Other"],
+								"Invalid Job Type"
+							)
+							.required("Required"),
+						dateOfEvent : Yup.string()
+							.required("Required"),
+						timeOfEvent : Yup.string()
+							.required("Required"),
+						message: Yup.string()
+							.min(3, "Must be 3 characters or more")
+							.required("Required"),
+					})}
+					onSubmit={ ( values, { setSubmitting, resetForm }) => {
 
-					let newValues = {...values}
+						let newValues = {...values}
 
-					const newDate = dayjs( getValue( values , 'dateOfEvent', '') ).format('MMMM DD, YYYY')
+						const newDate = dayjs( getValue( values , 'dateOfEvent', '') ).format('MMMM DD, YYYY')
 
-					newValues['dateOfEvent'] = newDate
+						newValues['dateOfEvent'] = newDate
 
-          setSubmitting(true)
-					fetch("/", {
-						method: "POST",
-						headers: { "Content-Type": "application/x-www-form-urlencoded" },
-						body: encode({ "form-name": "Temporal Contact Form", ...newValues })
-					})
-						.then(() => {
-							setStatus('submitted')
+						setSubmitting(true)
+						fetch("/", {
+							method: "POST",
+							headers: { "Content-Type": "application/x-www-form-urlencoded" },
+							body: encode({ "form-name": "Temporal Contact Form", ...newValues })
 						})
-						.catch( error =>
-							setStatus('errored')
-						);
-          setTimeout(() => {
-						setStatus('submitted')
-						setSubmitting(false)
-					} , 2000 )
-        }}
-      >
-				{( { errors, touched, isSubmitting , status, setStatus, resetForm } ) => {
+							.then(( props ) => {
+								
+								console.log(`🚀 ~ file: index.js ~ line 461 ~ .then ~ props`, props)
+								setFormStatus('submitted')
+								resetForm()
+							})
+							.catch( error =>
+								setFormStatus('errored')
+							);
+						setTimeout(() => {
+							setSubmitting(false)
+						} , 1000 )
+					}}
+				>
+					{( { errors, touched, isSubmitting } ) => {
 
-					console.log(`🚀 ~ file: index.js ~ line 342 ~ ContactForm ~ status`, status)
+						const touchedAndErrored = []
 
-					const touchedAndErrored = []
-
-					Object.keys( touched ).forEach( key => {
-						
-						if ( getValue( errors, key, false ) ){
+						Object.keys( touched ).forEach( key => {
 							
-							touchedAndErrored.push( errors[key] )
+							if ( getValue( errors, key, false ) ){
+								
+								touchedAndErrored.push( errors[key] )
 
-						}
+							}
 
-					})
+						})
 
-					const buttonClasses = classy([
-						'button',
-						'is-primary',
-						'is-outlined',
-						'is-rounded',
-						'is-fullwidth',
-						!is.empty( touchedAndErrored ) && 'is-danger',
-						is.empty( errors ) && 'is-success',
-						isSubmitting && 'is-loading'
-						// 'is-loading'
-					])
+						const buttonClasses = classy([
+							'button',
+							'is-primary',
+							'is-outlined',
+							'is-rounded',
+							'is-fullwidth',
+							!is.empty( touchedAndErrored ) && 'is-danger',
+							is.empty( errors ) && 'is-success',
+							isSubmitting && 'is-loading'
+							// 'is-loading'
+						])
 
-					const deleteHandler = ( called = false ) => {
-						console.log(`🚀 ~ file: index.js ~ line 369 ~ deleteHandler ~ called`, called)
-						if ( called ) {
-							resetForm()
-							setStatus('emptied') 
-						}
-					}
-
-					const deleteClasses = classy([
-						'form-filled-delete',
-						'delete',
-						'is-large',
-						!status === 'submitted' && 'is-hidden',
-						!status === 'submitted' && 'is-not-clickable'
-					])
-
-					return (
-					<Form { ...formClasses } method='POST' data-netlify='true' >
-						<input type='hidden' name='subject' value='Contact form DJEddieG.com' />
-						<input type='hidden' name='form-name' value='Temporal Contact Form' />
-						{/* { status === 'submitted' &&
-							<div className='form-filled notification'>
-							<button 
-								onClick={ deleteHandler( true ) } 
-								{ ...deleteClasses }
-								aria-label="Close Notification"
+						return (
+						<Form { ...formClasses } method='POST' data-netlify='true' >
+							<input type='hidden' name='subject' value='Contact form DJEddieG.com' />
+							<input type='hidden' name='form-name' value='Temporal Contact Form' />
+							<MyTextInput
+								name='fullName'
+								type='text'
+								placeholder='Name'
 							/>
-							<p className='form-filled-content'>
-								Thanks for getting in touch, someone will reach out shortly.
-							</p>
-						</div>
-						} */}
-						<MyTextInput
-							name='fullName'
-							type='text'
-							placeholder='Name'
-						/>
-						<MyTextInput
-							name='email'
-							type='email'
-							placeholder='Email'
-						/>
-						<MyPhoneInput
-							label='Phone Number'
-							name='phoneNumber'
-							type='tel'
-							// placeholder='000-000-0000'
-						/>
-						<MySelectInput label='Service Type' name='serviceType'>
-							<option value=''>Select a service type</option>
-							<option value='Wedding'>Wedding</option>
-							<option value='Quinceañera'>Quinceañera</option>
-							<option value='Sweet 16'>Sweet 16</option>
-							<option value='Corporate Event'>Corporate Event</option>
-							<option value='Other'>Other</option>
-						</MySelectInput>
-						<div { ...timeDateClasses } >
-							<MyDateInput
-								label='Date'
-								name='dateOfEvent'
-								className='field-date column is-6'
+							<MyTextInput
+								name='email'
+								type='email'
+								placeholder='Email'
 							/>
-							<MyTimeInput
-								label='Time'
-								name='timeOfEvent'
-								className='field-time column is-6'
+							<MyPhoneInput
+								label='Phone Number'
+								name='phoneNumber'
+								type='tel'
+								// placeholder='000-000-0000'
 							/>
-						</div>
-						<MyTextareaInput
-							label='Message'
-							name='message'
-							type='textarea'
-							placeholder= 'Brief summary of the event'
-							className='input-message'
-						/>
-						<div className='control'>
-							<button 
-								type='submit'
-								{ ...buttonClasses }
-								disabled={ !( is.empty( touchedAndErrored ) && ( Object.keys( touched ).length > 6 ) ) }
-							>
-								Reach out now!
-							</button>
-						</div>
-					</Form>
-				)}}
-      </Formik>
+							<MySelectInput label='Service Type' name='serviceType'>
+								<option value=''>Select a service type</option>
+								<option value='Wedding'>Wedding</option>
+								<option value='Quinceañera'>Quinceañera</option>
+								<option value='Sweet 16'>Sweet 16</option>
+								<option value='Corporate Event'>Corporate Event</option>
+								<option value='Other'>Other</option>
+							</MySelectInput>
+							<div { ...timeDateClasses } >
+								<MyDateInput
+									label='Date'
+									name='dateOfEvent'
+									className='field-date column is-6'
+								/>
+								<MyTimeInput
+									label='Time'
+									name='timeOfEvent'
+									className='field-time column is-6'
+								/>
+							</div>
+							<MyTextareaInput
+								label='Message'
+								name='message'
+								type='textarea'
+								placeholder= 'Brief summary of the event'
+								className='input-message'
+							/>
+							<div className='control'>
+								<button 
+									type='submit'
+									{ ...buttonClasses }
+									disabled={ !( is.empty( touchedAndErrored ) && ( Object.keys( touched ).length > 6 ) ) }
+								>
+									{ formStatus === 'submitted' ? <Icon><FaCheck/></Icon> : 'Reach out now!' }
+								</button>
+							</div>
+						</Form>
+					)}}
+				</Formik>
+			</div>
 	</>)
 }
 

@@ -387,7 +387,6 @@ const ContactForm = props => {
 						const newDate = dayjs( getValue( values , 'dateOfEvent', '') ).format('MMMM DD, YYYY')
 
 						newValues['dateOfEvent'] = newDate
-						console.log(`🚀 ~ file: index.js ~ line 390 ~ ContactForm ~ newValues`, newValues)
 
 						setSubmitting(true)
 						fetch("/", {

@@ -17,7 +17,7 @@ $red-extra-light-invert:			findColorInvert($red-extra-light);
 $red-light-invert:						findColorInvert($red-light);
 $red-dark-invert:							findColorInvert($red-dark);
 $red-extra-dark-invert:				findColorInvert($red-extra-dark);
-$red-darkest-invert:				findColorInvert($red-darkest);
+$red-darkest-invert:					findColorInvert($red-darkest);
 
 $yellow-invert:								findColorInvert($yellow);
 $yellow-extra-light-invert:		findColorInvert($yellow-extra-light);
@@ -80,26 +80,26 @@ $dark-invert:				findColorInvert($dark);
 // $icon-tertiary: $dark-grey;
 
 // Color Aliases
-$primary: $white;
-$primary-invert: $white-invert;
+$primary: 					$white;
+$primary-invert: 		$white-invert;
 
-$secondary: $red;
-$secondary-invert: $red-invert;
+$secondary: 				$red;
+$secondary-invert: 	$red-invert;
 
-$brand: $red;
-$brand-invert: $red-invert;
+$brand: 					$red;
+$brand-invert: 		$red-invert;
 
-$info: $system-blue;
-$info-invert: $system-blue-invert;
+$info: 						$system-blue;
+$info-invert: 		$system-blue-invert;
 
-$success: $system-green;
-$success-invert: $system-green-invert;
+$success: 				$system-green;
+$success-invert: 	$system-green-invert;
 
-$warning: $system-yellow;
-$warning-invert: $system-yellow-invert;
+$warning: 				$system-yellow;
+$warning-invert: 	$system-yellow-invert;
 
-$danger: $system-red;
-$danger-invert: $system-red-invert;
+$danger: 					$system-red;
+$danger-invert: 	$system-red-invert;
 
 $disabled: 				$gray-dark;
 $disabled-invert: $gray-dark-invert;
@@ -133,75 +133,75 @@ $text-strong: 		$red-darkest;
 
 // Lists and maps
 $social-colors: (
-	"brand-color-facebook": ($brand-color-facebook, $white),
-	"brand-color-twitter": ($brand-color-twitter, $white),
-	"brand-color-youtube": ($brand-color-youtube, $white),
-	"brand-color-instagram": ($brand-color-instagram, $white),
+	"brand-color-facebook": 	($brand-color-facebook, $white),
+	"brand-color-twitter": 		($brand-color-twitter, $white),
+	"brand-color-youtube": 		($brand-color-youtube, $white),
+	"brand-color-instagram": 	($brand-color-instagram, $white),
 );
 
 $custom-colors: mergeColorMaps(
 	(
-		"ivory": ($ivory, $ivory-invert),
-		"red": ($red, $red-invert),
-		"red-extra-light": ($red-extra-light, $red-extra-light-invert),
-		"red-light": ($red-light, $red-light-invert),
-		"red-dark": ($red-dark, $red-dark-invert),
-		"red-extra-dark": ($red-extra-dark, $red-extra-dark-invert),
-		"red-darkest": ($red-darkest, $red-darkest-invert),
-		"yellow": ($yellow, $yellow-invert),
-		"yellow-extra-light": ($yellow-extra-light, $yellow-extra-light-invert),
-		"yellow-light": ($yellow-light, $yellow-light-invert),
-		"yellow-dark": ($yellow-dark, $yellow-dark-invert),
-		"yellow-extra-dark": ($yellow-extra-dark, $yellow-extra-dark-invert),
-		"blue": ($blue, $blue-invert),
-		"blue-extra-light": ($blue-extra-light, $blue-extra-light-invert),
-		"blue-light": ($blue-light, $blue-light-invert),
-		"blue-dark": ($blue-dark, $blue-dark-invert),
-		"blue-extra-dark": ($blue-extra-dark, $blue-extra-dark-invert),
-		"green": ($green, $green-invert),
-		"green-extra-light": ($green-extra-light, $green-extra-light-invert),
-		"green-light": ($green-light, $green-light-invert),
-		"green-dark": ($green-dark, $green-dark-invert),
-		"green-extra-dark": ($green-extra-dark, $green-extra-dark-invert),
-		"system-red": ($system-red, $system-red-invert),
-		"system-red-extra-light": ($system-red-extra-light, $system-red-extra-light-invert),
-		"system-red-light": ($system-red-light, $system-red-light-invert),
-		"system-red-dark": ($system-red-dark, $system-red-dark-invert),
-		"system-red-extra-dark": ($system-red-extra-dark, $system-red-extra-dark-invert),
-		"system-yellow": ($system-yellow, $system-yellow-invert),
-		"system-yellow-extra-light": ($system-yellow-extra-light, $system-yellow-extra-light-invert),
-		"system-yellow-light": ($system-yellow-light, $system-yellow-light-invert),
-		"system-yellow-dark": ($system-yellow-dark, $system-yellow-dark-invert),
-		"system-yellow-extra-dark": ($system-yellow-extra-dark, $system-yellow-extra-dark-invert),
-		"system-blue": ($system-blue, $system-blue-invert),
-		"system-blue-extra-light": ($system-blue-extra-light, $system-blue-extra-light-invert),
-		"system-blue-light": ($system-blue-light, $system-blue-light-invert),
-		"system-blue-dark": ($system-blue-dark, $system-blue-dark-invert),
-		"system-blue-extra-dark": ($system-blue-extra-dark, $system-blue-extra-dark-invert),
-		"system-green": ($system-green, $system-green-invert),
-		"system-green-extra-light": ($system-green-extra-light, $system-green-extra-light-invert),
-		"system-green-light": ($system-green-light, $system-green-light-invert),
-		"system-green-dark": ($system-green-dark, $system-green-dark-invert),
-		"system-green-extra-dark": ($system-green-extra-dark, $system-green-extra-dark-invert),
-		"secondary": ($secondary, $secondary-invert),
-		"brand": ($brand, $brand-invert),
-		"disabled": ($disabled, $disabled-invert),
+		"ivory":											($ivory, $ivory-invert),
+		"red": 												($red, $red-invert),
+		"red-extra-light": 						($red-extra-light, $red-extra-light-invert),
+		"red-light": 									($red-light, $red-light-invert),
+		"red-dark": 									($red-dark, $red-dark-invert),
+		"red-extra-dark": 						($red-extra-dark, $red-extra-dark-invert),
+		"red-darkest": 								($red-darkest, $red-darkest-invert),
+		"yellow": 										($yellow, $yellow-invert),
+		"yellow-extra-light": 				($yellow-extra-light, $yellow-extra-light-invert),
+		"yellow-light": 							($yellow-light, $yellow-light-invert),
+		"yellow-dark": 								($yellow-dark, $yellow-dark-invert),
+		"yellow-extra-dark": 					($yellow-extra-dark, $yellow-extra-dark-invert),
+		"blue": 											($blue, $blue-invert),
+		"blue-extra-light": 					($blue-extra-light, $blue-extra-light-invert),
+		"blue-light": 								($blue-light, $blue-light-invert),
+		"blue-dark": 									($blue-dark, $blue-dark-invert),
+		"blue-extra-dark": 						($blue-extra-dark, $blue-extra-dark-invert),
+		"green": 											($green, $green-invert),
+		"green-extra-light": 					($green-extra-light, $green-extra-light-invert),
+		"green-light": 								($green-light, $green-light-invert),
+		"green-dark": 								($green-dark, $green-dark-invert),
+		"green-extra-dark": 					($green-extra-dark, $green-extra-dark-invert),
+		"system-red": 								($system-red, $system-red-invert),
+		"system-red-extra-light": 		($system-red-extra-light, $system-red-extra-light-invert),
+		"system-red-light": 					($system-red-light, $system-red-light-invert),
+		"system-red-dark": 						($system-red-dark, $system-red-dark-invert),
+		"system-red-extra-dark": 			($system-red-extra-dark, $system-red-extra-dark-invert),
+		"system-yellow": 							($system-yellow, $system-yellow-invert),
+		"system-yellow-extra-light": 	($system-yellow-extra-light, $system-yellow-extra-light-invert),
+		"system-yellow-light": 				($system-yellow-light, $system-yellow-light-invert),
+		"system-yellow-dark": 				($system-yellow-dark, $system-yellow-dark-invert),
+		"system-yellow-extra-dark": 	($system-yellow-extra-dark, $system-yellow-extra-dark-invert),
+		"system-blue": 								($system-blue, $system-blue-invert),
+		"system-blue-extra-light": 		($system-blue-extra-light, $system-blue-extra-light-invert),
+		"system-blue-light": 					($system-blue-light, $system-blue-light-invert),
+		"system-blue-dark": 					($system-blue-dark, $system-blue-dark-invert),
+		"system-blue-extra-dark": 		($system-blue-extra-dark, $system-blue-extra-dark-invert),
+		"system-green": 							($system-green, $system-green-invert),
+		"system-green-extra-light": 	($system-green-extra-light, $system-green-extra-light-invert),
+		"system-green-light": 				($system-green-light, $system-green-light-invert),
+		"system-green-dark": 					($system-green-dark, $system-green-dark-invert),
+		"system-green-extra-dark":	 	($system-green-extra-dark, $system-green-extra-dark-invert),
+		"secondary": 									($secondary, $secondary-invert),
+		"brand": 											($brand, $brand-invert),
+		"disabled": 									($disabled, $disabled-invert),
 	),
 	$social-colors
 );
 
 $colors: mergeColorMaps(
 	(
-		"white": ($white, $black),
-		"black": ($black, $white),
-		"light": ($light, $light-invert),
-		"dark": ($dark, $dark-invert),
-		"primary": ($primary, $primary-invert),
-		// "link": ($link, $link-invert),
-		"info": ($info, $info-invert),
-		"success": ($success, $success-invert),
-		"warning": ($warning, $warning-invert),
-		"danger": ($danger, $danger-invert)
+		"white": 		($white, $black),
+		"black": 		($black, $white),
+		"light": 		($light, $light-invert),
+		"dark": 		($dark, $dark-invert),
+		"primary": 	($primary, $primary-invert),
+		// "link": 	($link, $link-invert),
+		"info": 		($info, $info-invert),
+		"success": 	($success, $success-invert),
+		"warning": 	($warning, $warning-invert),
+		"danger": 	($danger, $danger-invert)
 	),
 	$custom-colors
 );

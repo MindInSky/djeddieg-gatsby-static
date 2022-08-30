@@ -5,7 +5,8 @@
 @import "_mixins";
 
 // Import our variable overrides
-@import "_initialVars.scss";
+@import "_initialVars";
+@import "_derivedVars";
 
 // Import bulma
 @import "~bulma/bulma.sass";
@@ -13,10 +14,9 @@
 // Supersets for custom UI
 // Import all files inside the `scss` directory and subdirectories.
 @import "_typography.scss";
-@import "_derivedVars.scss";
 @import '../blocks/**/*.scss';
 @import '../elements/**/*.scss';
 @import '../layouts/**/*.scss';
 
 // Overrides
-@import "_overrides.scss";
+@import "_overrides";

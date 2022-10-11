@@ -30,7 +30,8 @@ const Footer = props => {
 	const footerClasses = classy([
 		'footer',
 		'navbar',
-		'is-fixed-bottom',
+		// 'is-fixed-bottom',
+		'has-background-black',
 		className 
 	])
 

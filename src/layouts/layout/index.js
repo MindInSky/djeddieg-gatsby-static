@@ -13,25 +13,31 @@ import is from 'is_js'
 
 // Import Modifiers
 import Seo from 'modifiers/seo'
+import classy from 'modifiers/classy'
 
 // Import Layouts
 import { Header, Footer } from 'layouts'
 
 const Layout = props => {
 
-  const { 
+  const {
     seo = false,
     header = {},
     footer = {},
     children = false,
     simple = false,
+    className = '',
   } = props
+
+  const layoutClasses = classy([
+    className
+  ])
 
   return (
     <>
       <Seo { ...seo } />
-      { ( is.not.empty( header ) || simple ) && <Header { ...header } />}
-      <main>
+      { ( is.not.empty( header ) || simple ) && <Header { ...header } { ...layoutClasses } />}
+      <main { ...layoutClasses } >
         { children }
       </main>
       { ( is.not.empty( footer ) || simple ) && <Footer { ...footer } />}

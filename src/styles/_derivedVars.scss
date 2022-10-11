@@ -6,7 +6,8 @@ $dark-invert:				findColorInvert($dark);
 
 // Find Primary Color Inverts
 $ivory-invert:				findColorInvert($ivory);
-$white:								$ivory;
+$dove-invert:					findColorInvert($dove);
+// $white:								$ivory;
 
 // Find Primary Color Inverts
 $white-invert:				findColorInvert($white);
@@ -105,13 +106,16 @@ $disabled: 				$gray-dark;
 $disabled-invert: $gray-dark-invert;
 
 // General colors
-$background: $white;
+$background: $new-ivory ;
 
 // Text colors
 $text: 						$dark;
 $text-invert: 		$white;
 $text-light: 			$gray-light;
 $text-strong: 		$red-darkest;
+
+// Background color override
+$body-background-color: $white;
 
 // Link colors
 // $link: $blue;
@@ -141,6 +145,7 @@ $social-colors: (
 
 $custom-colors: mergeColorMaps(
 	(
+		"dove":												($dove, $dove-invert),
 		"ivory":											($ivory, $ivory-invert),
 		"red": 												($red, $red-invert),
 		"red-extra-light": 						($red-extra-light, $red-extra-light-invert),

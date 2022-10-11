@@ -34,8 +34,8 @@ const headerData = {
 					title: "Products",
 					main_cta: {
 						label: "Products",
-						url: "",
-						page: "/"
+						url: false,
+						page: "/asdasd"
 					}
 				},
 				{
@@ -43,7 +43,7 @@ const headerData = {
 					main_cta: {
 						label: "Solutions",
 						url: "",
-						page: "/"
+						page: "https://www.google.com/"
 					},
 					links: [
 						{
@@ -60,15 +60,16 @@ const headerData = {
     logo_link: true,
     logo_position: true,
     with_cta: false,
-    with_menus: false
+    with_menus: true
   },
   title: "Testing Header",
   description: "Testing Header NOT for prod"
 }
 
 const logoData = {
-	src : '../../../static/images/logo.png',
-	alt : 'DJ Eddie G - Home',
+	src : '../../../static/images/slim logo.png',
+	alt : 'DJ Eddie G Logo',
+	className: 'logo-image'
 }
 
 const Header = () => {
@@ -88,12 +89,13 @@ const Header = () => {
 			with_menus = false
 		} = {}
 	} = headerData
-	
+
 	const headerClasses = classy([
 		'header',
 		'navbar',
 		'is-fixed-top',
-		className 
+		'has-background-dove',
+		className
 	])
 
 	const containerClasses= classy([
@@ -104,68 +106,63 @@ const Header = () => {
 		'is-justify-content-space-between',
 	])
 
-	const linkClasses = classy([
-		'column', 
-		'is-flex',
-		'is-6-tablet',
+	const logoClasses = classy([
+		'column',
+		'is-6-mobile',
+		'is-4-tablet',
 		'is-3-desktop',
 		'is-3-widescreen',
 		'is-2-fullhd',
 		'is-align-items-center',
-		'link-column'
+		'logo'
 	])
 
-	const menuWrapperClasses = classy([
+	const menuDesktopClasses = classy([
 		'column',
-		'is-narrow'
+		'is-narrow',
+		'nav-wrapper',
+		'is-hidden-mobile',
 	])
 
-	const bannerWrapperClasses = classy([
-		'header-banner',
-		'column',
-		'is-6-tablet',
-		'is-narrow-desktop',
-		'is-narrow-widescreen',
-		'is-narrow-fullhd',
-		'is-align-items-center',
-		'is-flex',
-		'is-align-items-center',
-		'has-background-danger',
-	])
-		
-	return ( 
+	// const bannerWrapperClasses = classy([
+	// 	'header-banner',
+	// 	'column',
+	// 	'is-6-tablet',
+	// 	'is-narrow-desktop',
+	// 	'is-narrow-widescreen',
+	// 	'is-narrow-fullhd',
+	// 	'is-align-items-center',
+	// 	'is-flex',
+	// 	'is-align-items-center',
+	// 	'has-background-danger',
+	// ])
+
+	return (
 		<header { ...headerClasses } >
 			{/* <StaticImage/> */}
 			<Container type='fluid' { ...containerClasses }>
-				{ with_logo && !is.all.emtpy && 
-					<Wrapper
-						condition = { logo_link }
-						wrapper = { 
-							children => <Link
-							to="/"
-							{ ...linkClasses }
-						>
-							{ children }
-						</Link>
-						}
+				{ with_logo &&
+					<Link
+						to="/"
+						{ ...logoClasses }
 					>
-							{/* Logo Image - Start - */}
-								<StaticImage
-									{ ...logoData }
-								/>
-							{/* Logo Image -  End  - */}
-					</Wrapper>
+						{/* Logo Image - Start - */}
+						<StaticImage
+							{ ...logoData }
+						/>
+						{/* Logo Image -  End  - */}
+					</Link>
 				}
 				{/* Banner  */}
-				<div { ...bannerWrapperClasses }>
+				{/* <div { ...bannerWrapperClasses }>
 					<p>
 						Renovations are being performed for a better experience
 					</p>
-				</div>
+				</div> */}
 				{ with_menus && ( is.not.empty( menu ) || is.all.truthy( main_cta ) ) &&
-					<div { ...menuWrapperClasses } >
+					<div { ...menuDesktopClasses } >
 					{/* Main CTA - start - */}
-					{/* { main_cta && 
+					{/* { main_cta &&
 						<div >
 
 						</div>
@@ -173,7 +170,7 @@ const Header = () => {
 					{/* Main CTA -  End  - */}
 					{/* Navigation  - Start - Menu must not be  */}
 					{ with_menus && is.not.empty( menu ) &&
-						<Navigation { ...menu } /> 
+						<Navigation { ...menu } />
 					}
 					{/* Navigation  -  End  - */}
 				</div>

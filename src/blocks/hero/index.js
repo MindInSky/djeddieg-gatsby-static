@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Import Elements
-import { ContactForm } from 'elements'
+// import { ContactForm } from 'elements'
 
 // Import Layouts
 import { Section } from 'layouts'
@@ -12,6 +12,7 @@ import { Section } from 'layouts'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
+import { StaticImage } from 'gatsby-plugin-image'
 
 // const background_image = {
 // 	src : '../../../static/images/equipment_setup.jpg',
@@ -28,8 +29,7 @@ const ImpactHero = props => {
 	const heroClasses = classy([
 		'impact-hero',
 		'hero',
-		'is-fullheight-with-navbar-footer',
-		'container',
+		'is-halfheight',
 		className
 	])
 
@@ -37,70 +37,52 @@ const ImpactHero = props => {
 	// 	'impact-background',
 	// ])
 
-	const topWrapperClasses = classy([
-		'announcement',
-		'hero-head',
-		'columns'
-	])
+	// const bodyClasses = classy([
+	// 	'impact-content',
+	// 	'hero-body',
+	// 	'columns',
+	// 	'is-justify-content-space-around'
+	// ])
 
-	const topClasses = classy([
-		'announcement-content',
-		'hero-member',
-		'column',
-		'is-12',
-		'content'
-	])
+	// const panelClasses = classy([
+	// 	'hero-panel',
+	// 	'hero-member',
+	// 	'column',
+	// 	'is-5',
+	// 	'content'
+	// ])
 
-	const bodyClasses = classy([
-		'impact-content',
-		'hero-body',
-		'columns',
-		'is-justify-content-space-around'
-	])
+	// const formClasses = classy([
+	// 	'hero-form',
+	// 	'hero-member',
+	// 	'column',
+	// 	'is-5'
+	// ])
 
-	const panelClasses = classy([
-		'hero-panel',
-		'hero-member',
-		'column',
-		'is-5',
-		'content'
-	])
+	// const phoneLinkClasses = classy([
+	// 	'subtitle',
+	// 	'is-5',
+	// 	'is-link',
+	// 	'has-text-weight-bold',
+	// 	'has-text-centered',
+	// 	'is-rounded',
+	// 	'button',
+	// 	'is-success'
+	// ])
 
-	const formClasses = classy([
-		'hero-form',
-		'hero-member',
-		'column',
-		'is-5'
-	])
-
-	const phoneLinkClasses = classy([
-		'subtitle',
-		'is-5',
-		'is-link',
-		'has-text-weight-bold',
-		'has-text-centered',
-		'is-rounded',
-		'button',
-		'is-success'
-	])
+	const backgroundImageData = {
+		src : '../../../static/images/couple-dancing-clouds.png',
+		alt : 'Couple dancing on clouds',
+		className : 'impact-bg'
+	}
 
 	return ( <>
 		<Section { ...heroClasses } container = { false } >
-			<div { ...topWrapperClasses } >
-				<div { ...topClasses } >
-					<h2 className='title is-3'> Services Offered </h2>
-					<p className='subtitle is-5'>
-						DJ Eddie G is happy to meet with clients for a consultation before the big day.
-					</p> 
-					<p>
-						During this time together, you can discuss music options, timeline, bilingual MC services, and the do-not-play list. Proof of liability insurance can be provided. He can provide all his own equipment, such as premium lighting for the dancefloor, a sound/PA system, microphones, up-lighting, TVs, and a projector. 
-					</p>
-					<p>
-						DJ Eddie G has a large selection of music genres to please any crowd.
-					</p> 
-				</div>
-			</div>
-			<div { ...bodyClasses } >
+			<StaticImage
+				{ ...backgroundImageData }
+				layout='fullWidth'
+			/>
+			{/* <div { ...bodyClasses } >
 				<div { ...panelClasses } >
 					<p>
 						In addition to the music, DJ Eddie G also offers a variety of services including:</p>
@@ -129,11 +111,11 @@ const ImpactHero = props => {
 							</a>
 						</div>
 					</div>
-				</div>
-				<div { ...formClasses } >
+				</div> */}
+				{/* <div { ...formClasses } >
 					<ContactForm/>
-				</div>
-			</div>
+				</div> */}
+			{/* </div> */}
 		</Section>
 		{/* <div { ...backgroundClasses }>
 			<StaticImage

@@ -6,8 +6,8 @@
   .social-column {
     &:hover {
       .social-icon {
-        background-color: #0000007d;
-        border-radius: 50%;
+        // background-color: #0000007d;
+        // border-radius: 50%;
         transition: background-color 0.3s, color 0.3s;
       }
     }
@@ -15,44 +15,47 @@
   
   .facebook-icon {
     &:hover {
-      color: $brand-color-facebook;
+      color: $red-extra-light;
+      &.social-icon {
+        background-color: $brand-color-facebook;
+      }
     }
   }
 
-  .twitter-icon {
-    &:hover {
-      color: $brand-color-twitter;
-    }
-  }
+  // .twitter-icon {
+  //   &:hover {
+  //     color: $brand-color-twitter;
+  //   }
+  // }
 
-  .instagram-icon {
-    &:hover {
-      color: $brand-color-instagram;
-    }
-  }
+  // .instagram-icon {
+  //   &:hover {
+  //     color: $brand-color-instagram;
+  //   }
+  // }
 
-  .youtube-icon {
-    &:hover {
-      color: $brand-color-youtube;
-    }
-  }
+  // .youtube-icon {
+  //   &:hover {
+  //     color: $brand-color-youtube;
+  //   }
+  // }
 
-  .mixcloud-icon {
-    &:hover {
-      color: $brand-color-mixcloud;
-    }
-  }
+  // .mixcloud-icon {
+  //   &:hover {
+  //     color: $brand-color-mixcloud;
+  //   }
+  // }
 
-  .soundcloud-icon {
-    &:hover {
-      color: $brand-color-soundcloud;
-    }
-  }
+  // .soundcloud-icon {
+  //   &:hover {
+  //     color: $brand-color-soundcloud;
+  //   }
+  // }
 
-  .twitch-icon {
-    &:hover {
-      color: $brand-color-twitch;
-    }
-  }
+  // .twitch-icon {
+  //   &:hover {
+  //     color: $brand-color-twitch;
+  //   }
+  // }
 
 }

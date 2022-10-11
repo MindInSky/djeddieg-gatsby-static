@@ -1,12 +1,7 @@
-.navbar { 
-  background-color: transparent;
-  backdrop-filter: $blur;
-}
+// .navbar {
+//   background-color: inherit;
+// }
 
 option {
   @extend .input;
-}
-
-body {
-  background: url('https://djeddieg.gatsbyjs.io/static/ded5f6714aecdd11241c5f1865683a80/374dd/equipment_setup.webp');;
 }

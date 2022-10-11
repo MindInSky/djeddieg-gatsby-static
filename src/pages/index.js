@@ -24,6 +24,7 @@ const Index = () => {
   return (
     <Layout
       simple = { true }
+      className= 'use-novela'
       // { ...layout }
       seo = { seo }
     >

@@ -13,7 +13,7 @@ const Container = props => {
     const {
         type = false,
         children = false,
-        className = false, 
+        className = false,
     } = props
 
     const containerClasses = classy([
@@ -22,8 +22,8 @@ const Container = props => {
         is.not.boolean(type) && type !== `fluid` ? `is-max-${type}` : false,
         className
     ])
-    
-    return ( 
+
+    return (
         <div { ...containerClasses }>
             { children }
         </div>

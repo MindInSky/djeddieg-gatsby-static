@@ -1,50 +1,22 @@
 .section.impact-hero {
 
   position: relative;
-  padding-top: 10rem;
+  overflow: hidden;
 
-  @media screen and (min-width: $tablet)  {
+  // @media screen and (min-width: $tablet)  {
 
-    padding-top: 5rem; // Extra temporary distance from header
+  //   padding-top: 5rem; // Extra temporary distance from header
 
-  }
-  
-	&.is-fullheight-with-navbar-footer {
-
-    min-height: calc(100vh - 7.45rem);
-
-  }
-
-  .announcement {
-
-    padding-left: 1.5rem ;
-    padding-right: 1.5rem ;
-
-  }
-
-  .impact-content {
-
-    padding-top: 1.5rem;
-
-  }
-
-  .hero-member {
-    
-    border-radius: $radius-extra-large;
-    background-image: $background-filter;
-
-    @media screen and (max-width: $tablet) {
-      &:not(:last-child){
-        margin-bottom: 1rem;
-      }
+  // }
+  .impact-bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    @media screen and ( max-width: $tablet ) {
+      padding: 75%;
+      left: -9rem;
     }
-
-  }
-
-  .hero-panel {
-
-    margin-bottom: 0;
-
   }
 
 }
@@ -54,15 +26,15 @@
   top: 0;
   z-index: -1;
   position: absolute;
-  
+
   .image {
-     
+
     height: 175vh;
 
     @media screen and (min-width: $tablet)  {
-  
+
       height: 100vh; // This works from tablet on
-  
+
     }
 
     filter: brightness(85%);

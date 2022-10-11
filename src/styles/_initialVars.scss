@@ -8,6 +8,8 @@
 
 // Color
 $ivory : #fbffec;
+$dove: #f0efe6;
+$white : #FFFFFF; // White dove
 $black: #000000;
 
 /* CSS - Cascading Style Sheet */
@@ -15,14 +17,14 @@ $black: #000000;
 /* Palette URL: http://paletton.com/#uid=7030u0kshik6IG0jAo5HdbRZ24f */
 
 // Main Colors
-$red:                 #921A11;	
+$red:                 #921A11;
 $red-extra-light:     #FFCDCA;
 $red-light:           #C0534A;
 $red-dark:            #5E0700;
 $red-extra-dark:      #220200;
 $red-darkest:         #110100; //Smoky black
 
-$yellow:              #924F11;	
+$yellow:              #924F11;
 $yellow-extra-light:  #FFE3CA;
 $yellow-light:        #C0834A;
 $yellow-dark:         #5E2D00;
@@ -62,7 +64,7 @@ $system-blue-light:         #52A5A5;
 $system-blue-dark:          #006B6B;
 $system-blue-extra-dark:    #004040;
 
-$system-green:              #26BA26; 
+$system-green:              #26BA26;
 $system-green-extra-light:  #DEF7DE;
 $system-green-light:        #68D268;
 $system-green-dark:         #008F00;
@@ -75,9 +77,12 @@ $gray-light: #A4A4A4; // This is the original logo color
 $gray-dark: #525252;
 $gray-extra-dark: #292929;
 
+// New background colors
+$new-ivory : #fff8ec;
+
 // Text Color
-$title-color:     $ivory;
-$subtitle-color:  $ivory;
+$title-color:     $red-darkest;
+$subtitle-color:  $red-extra-dark;
 
 // Global Radius Definitions
 $radius: 4px;
@@ -95,9 +100,6 @@ $brand-color-youtube:     		#BD0000;	// RGB: rgb(189,0,0);
 $brand-color-mixcloud:     		#5000ff;	// RGB: rgb(80, 0, 255);
 $brand-color-instagram:  		  #C13584;	// RGB: rgb(193,53,132);
 $brand-color-twitch:     		  #6441a4;	// RGB: rgb(100, 65, 164)
-
-// Background color override
-$body-background-color: #241c1f;
 
 // Global Definitions
 

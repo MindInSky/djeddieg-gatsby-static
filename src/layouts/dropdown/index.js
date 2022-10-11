@@ -33,17 +33,17 @@ const Dropdown = props => {
 
   // No children no render
   if( is.not.truthy( children ) ) {
-          
+
     console.warn(`Dropdown, won't render, error: no children `, props )
 
     return null
 
   }
-  
+
   if( is.empty( list ) || is.null( list ) ) {
-          
+
     console.warn(`Dropdown, won't render, error: no list of links `, props )
-    
+
     return null
 
   }

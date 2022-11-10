@@ -1,44 +1,50 @@
 .section.impact-hero {
 
   position: relative;
-  overflow: hidden;
+  display: grid;
 
-  // @media screen and (min-width: $tablet)  {
+  .img-bg-wrapper {
 
-  //   padding-top: 5rem; // Extra temporary distance from header
-
-  // }
-  .impact-bg {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    @media screen and ( max-width: $tablet ) {
-      padding: 75%;
-      left: -9rem;
-    }
-  }
-
-}
-
-.impact-background {
-
-  top: 0;
-  z-index: -1;
-  position: absolute;
-
-  .image {
-
-    height: 175vh;
-
-    @media screen and (min-width: $tablet)  {
-
-      height: 100vh; // This works from tablet on
-
-    }
-
-    filter: brightness(85%);
+    grid-area: 1 / 1;
 
   }
 
+  .hero-body {
+
+    grid-area: 1 / 1;
+    position: relative;
+
+    .container {
+
+      position: absolute;
+      top: 25%;
+      right: 20%;
+
+    }
+
+  }
+
+
 }
+
+// .impact-background {
+
+//   top: 0;
+//   z-index: -1;
+//   position: absolute;
+
+//   .image {
+
+//     height: 175vh;
+
+//     @media screen and (min-width: $tablet)  {
+
+//       height: 100vh; // This works from tablet on
+
+//     }
+
+//     filter: brightness(85%);
+
+//   }
+
+// }

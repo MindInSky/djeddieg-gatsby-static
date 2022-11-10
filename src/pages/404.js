@@ -14,9 +14,9 @@ import { Layout } from 'layouts'
 // import getValue from 'modifiers/getValue'
 
 const seo = {
-  url : '/',
-  title: 'Welcome',
-  description: 'DJEddieG bringing all you need for your celebrations',
+  url : '/404',
+  title: '404 Not Found',
+  description: 'Nothing to see here, yet.',
 }
 
 const Index = () => {
@@ -27,7 +27,9 @@ const Index = () => {
       // { ...layout }
       seo = { seo }
     >
-      <Hero/>
+      <Hero
+        title = 'Nothing to see here yet, the site is still under construction'
+      />
     </Layout>
   )
 

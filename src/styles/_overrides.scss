@@ -5,3 +5,9 @@
 option {
   @extend .input;
 }
+
+.has-backdrop-dark {
+
+  backdrop-filter: brightness(0.7);
+
+}

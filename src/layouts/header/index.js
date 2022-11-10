@@ -94,7 +94,6 @@ const Header = () => {
 		'header',
 		'navbar',
 		'is-fixed-top',
-		'has-background-dove',
 		className
 	])
 

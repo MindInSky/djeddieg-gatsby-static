@@ -24,11 +24,15 @@ const Index = () => {
   return (
     <Layout
       simple = { true }
-      className= 'use-novela'
       // { ...layout }
       seo = { seo }
     >
-      <Hero/>
+      <Hero
+        backdrop
+        textColor = 'white'
+        title='This is a title'
+        subtitle= 'This is a subtitle'
+      />
     </Layout>
   )
 

@@ -28,7 +28,8 @@ const Index = () => {
       seo = { seo }
     >
       <Hero
-        title = 'Nothing to see here yet, the site is still under construction'
+        textColor= 'white'
+        title = 'Nothing to see here'
       />
     </Layout>
   )

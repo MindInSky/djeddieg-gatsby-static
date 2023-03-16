@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Import Elements
-import { Link } from 'elements'
+import { Link, CallToAction } from 'elements'
 
 // Import Modifiers
 import classy from 'modifiers/classy'
@@ -24,33 +24,26 @@ const headerData = {
     main_cta: {
       type: "primary",
       label: "Contact Us",
-      url: "#contact-us"
+      to: "#contact-us"
     },
     menu: {
 			title: "Testing Header Menu",
 			description: "Testing header menu, need a new default one",
 			submenu: [
 				{
-					title: "Products",
+					title: "About Me",
 					main_cta: {
-						label: "Products",
+						label: "About Me",
 						url: false,
-						page: "/asdasd"
+						page: "/about_me"
 					}
 				},
 				{
-					title: "This is not displayed: Solutions",
+					title: "Gallery",
 					main_cta: {
-						label: "Solutions",
-						url: "",
-						page: "https://www.google.com/"
+						label: "Gallery",
+						url: "/gallery",
 					},
-					links: [
-						{
-							label: "Solution 1",
-							url: "https://www.youtube.com"
-						}
-					]
 				}
 			]
 		}
@@ -161,11 +154,9 @@ const Header = () => {
 				{ with_menus && ( is.not.empty( menu ) || is.all.truthy( main_cta ) ) &&
 					<div { ...menuDesktopClasses } >
 					{/* Main CTA - start - */}
-					{/* { main_cta &&
-						<div >
-
-						</div>
-					} */}
+					{ main_cta &&
+						<CallToAction { ...main_cta } className='header-desktop-cta' />
+					}
 					{/* Main CTA -  End  - */}
 					{/* Navigation  - Start - Menu must not be  */}
 					{ with_menus && is.not.empty( menu ) &&

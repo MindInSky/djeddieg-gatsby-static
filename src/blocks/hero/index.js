@@ -15,6 +15,7 @@ import { useLocation } from '@reach/router'
 // Import Modifiers
 import classy from 'modifiers/classy'
 import { StaticImage } from 'gatsby-plugin-image'
+import { CallToAction } from 'elements'
 
 const ImpactHero = props => {
 
@@ -115,6 +116,9 @@ const ImpactHero = props => {
 							</p>
 						}
 					</h1>
+					<CallToAction to='#' className='is-red'>
+						TEsting
+					</CallToAction>
 				</div>
 			</div>
 		</Section>

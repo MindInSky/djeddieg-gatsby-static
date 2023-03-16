@@ -30,8 +30,8 @@ const Index = () => {
       <Hero
         backdrop
         textColor = 'white'
-        title='This is a title'
-        subtitle= 'This is a subtitle'
+        title='Elevate Your Event'
+        subtitle= "With our exceptional entertainment services"
       />
     </Layout>
   )

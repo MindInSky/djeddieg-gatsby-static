@@ -32,6 +32,11 @@ const Index = () => {
         textColor = 'white'
         title='Elevate Your Event'
         subtitle= "With our exceptional entertainment services"
+        cta = {{
+          label : 'Contact us now!',
+          to: '#contact-us',
+          type : 'primary'
+        }}
       />
     </Layout>
   )

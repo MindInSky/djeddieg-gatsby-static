@@ -17,8 +17,8 @@
 // Supersets for custom UI
 // Import all files inside the `scss` directory and subdirectories.
 @import "_typography";
-@import '../blocks/**/*.scss';
 @import '../elements/**/*.scss';
+@import '../blocks/**/*.scss';
 @import '../layouts/**/*.scss';
 
 // Overrides

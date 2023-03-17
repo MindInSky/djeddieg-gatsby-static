@@ -28,7 +28,8 @@ const ImpactHero = props => {
 			backdrop = false,
 			subtitle = false,
 			container = false,
-			scrollId = false
+			scrollId = false,
+			cta = {}
 	} = props
 
 	// Stuff happens here
@@ -116,9 +117,9 @@ const ImpactHero = props => {
 							</p>
 						}
 					</h1>
-					<CallToAction to='#' className='is-red'>
-						TEsting
-					</CallToAction>
+					{ is.not.empty( cta ) &&
+						<CallToAction { ...cta } className = "hero-cta"/>
+					}
 				</div>
 			</div>
 		</Section>
